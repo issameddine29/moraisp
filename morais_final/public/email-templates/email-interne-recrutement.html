@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--
+╔══════════════════════════════════════════════════════════════════╗
+║  EMAIL INTERNE — Nouvelle candidature reçue                      ║
+║  Destinataire : rh@morais-cleaning.com                           ║
+║  Morais Cleaning — Usage n8n                                     ║
+╠══════════════════════════════════════════════════════════════════╣
+║  Variables n8n (FormData depuis recrutement.js)                  ║
+║                                                                  ║
+║  {{ $json.nom }}         Nom du candidat                         ║
+║  {{ $json.email }}       Email                                   ║
+║  {{ $json.telephone }}   Téléphone                               ║
+║  {{ $json.poste }}       Poste visé                              ║
+║  {{ $json.experience }}  Domaines d'expérience (CSV)             ║
+║  {{ $json.motivation }}  Lettre de motivation                    ║
+║  {{ $json.newsletter }}  Abonnement newsletter (oui/non)         ║
+║  {{ $json.timestamp }}   Horodatage ISO                          ║
+║  + Pièce jointe CV                                               ║
+╠══════════════════════════════════════════════════════════════════╣
+║  Champ "Sujet" n8n :                                             ║
+║  👤 Candidature — {{ $json.nom }} — {{ $json.poste }}            ║
+╚══════════════════════════════════════════════════════════════════╝
+-->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nouvelle candidature — Morais Cleaning RH</title>
+  <style>
+    body, table, td { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; border-collapse:collapse; }
+    body       { margin:0; padding:0; background:#eceff4; font-family:'Segoe UI',Arial,sans-serif; }
+
+    .wrapper   { max-width:660px; margin:24px auto; background:#ffffff;
+                 border-radius:10px; overflow:hidden; box-shadow:0 2px 18px rgba(0,0,0,.10); }
+
+    /* Header */
+    .hd        { background:linear-gradient(135deg,#1a3a8f 0%,#0d2560 100%); padding:24px 30px; }
+    .hd-inner  { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+    .hd h1     { font-size:18px; font-weight:700; color:#fff; margin:0; }
+    .badge-new { background:#ff7f50; color:#fff; font-size:11px; font-weight:800;
+                 padding:5px 14px; border-radius:20px; text-transform:uppercase; letter-spacing:.5px; }
+    .hd-meta   { font-size:12px; color:rgba(255,255,255,.75); margin:10px 0 0; width:100%; }
+
+    /* Body */
+    .body      { padding:30px; }
+    .sec       { margin-bottom:26px; }
+    .sec-title { font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:1.2px;
+                 color:#1a3a8f; border-bottom:2px solid #e0e8f4; padding-bottom:8px; margin:0 0 14px; }
+
+    /* Data table */
+    .data-table{ width:100%; border-collapse:collapse; }
+    .data-table tr:nth-child(even) td { background:#fafafa; }
+    .data-table td { font-size:14px; padding:12px 14px; border:1px solid #f0f0f0;
+                     vertical-align:top; color:#333; }
+    .data-table .lbl { font-weight:700; color:#555; width:32%; background:#f5f7fa !important; }
+    .data-table .val { color:#1a2940; }
+    .data-table a  { color:#1a3a8f; text-decoration:none; font-weight:600; }
+
+    /* Skills tags */
+    .skills-list { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+    .skill-tag   { background:#e8f0ff; color:#1a3a8f; font-size:12px; font-weight:600;
+                   padding:5px 12px; border-radius:20px; }
+
+    /* Motivation box */
+    .motivation-box { background:#f8fafd; border:1px solid #e0e8f4; border-radius:8px;
+                      padding:18px 20px; font-size:14px; color:#444;
+                      line-height:1.8; white-space:pre-wrap; }
+
+    /* CV attachment notice */
+    .cv-notice { background:#fff8f0; border:1px solid #ffcc99; border-radius:8px;
+                 padding:16px 20px; margin-bottom:24px; }
+    .cv-notice p { font-size:14px; color:#995500; margin:0; }
+    .cv-notice strong { color:#cc6600; }
+
+    /* Actions */
+    .actions   { text-align:center; padding:14px 0; }
+    .btn-action{ display:inline-block; font-size:14px; font-weight:700;
+                 text-decoration:none; padding:12px 26px; border-radius:8px;
+                 margin:6px 8px; }
+    .btn-reply { background:#1a3a8f; color:#fff !important; }
+    .btn-call  { background:#ff7f50; color:#fff !important; }
+
+    /* Footer */
+    .foot      { background:#f5f5f5; padding:14px 30px; text-align:center;
+                 font-size:11px; color:#bbb; }
+
+    @media (max-width:600px) {
+      .body { padding:20px !important; }
+      .data-table td { padding:10px; font-size:13px; }
+      .hd   { padding:18px !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- ══ EN-TÊTE ══ -->
+  <div class="hd">
+    <div class="hd-inner">
+      <h1>👤 Nouvelle candidature reçue</h1>
+      <span class="badge-new">À examiner sous 48h</span>
+    </div>
+    <p class="hd-meta">
+      Reçue le {{ new Date($json.timestamp).toLocaleDateString('fr-BE',{weekday:'long',year:'numeric',month:'long',day:'numeric'}) }}
+      à {{ new Date($json.timestamp).toLocaleTimeString('fr-BE',{hour:'2-digit',minute:'2-digit'}) }}
+      &nbsp;·&nbsp; Source : Page recrutement
+    </p>
+  </div>
+
+  <div class="body">
+
+    <!-- Notice CV -->
+    <div class="cv-notice">
+      <p>
+        <strong>📎 CV en pièce jointe</strong> — Le CV du candidat est attaché à cet email.
+        Pensez à le télécharger pour examen.
+      </p>
+    </div>
+
+    <!-- ── INFORMATIONS CANDIDAT ── -->
+    <div class="sec">
+      <p class="sec-title">👤 Informations du candidat</p>
+      <table class="data-table">
+        <tr>
+          <td class="lbl">Nom complet</td>
+          <td class="val"><strong>{{ $json.nom }}</strong></td>
+        </tr>
+        <tr>
+          <td class="lbl">Email</td>
+          <td class="val">
+            <a href="mailto:{{ $json.email }}?subject=Votre%20candidature%20chez%20Morais%20Cleaning&body=Bonjour%20{{ $json.nom }}%2C%0A%0A">
+              {{ $json.email }}
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td class="lbl">Téléphone</td>
+          <td class="val">
+            <a href="tel:{{ $json.telephone }}">{{ $json.telephone }}</a>
+          </td>
+        </tr>
+        <tr>
+          <td class="lbl">Newsletter</td>
+          <td class="val">{{ $json.newsletter === 'oui' ? '✅ Acceptée' : '❌ Non' }}</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ── POSTE VISÉ ── -->
+    <div class="sec">
+      <p class="sec-title">💼 Poste recherché</p>
+      <table class="data-table">
+        <tr>
+          <td class="lbl">Poste visé</td>
+          <td class="val"><strong>{{ $json.poste }}</strong></td>
+        </tr>
+        <tr>
+          <td class="lbl">Domaines d'expérience</td>
+          <td class="val">
+            <div class="skills-list">
+              {{ $json.experience ? $json.experience.split(',').map(e => '<span class="skill-tag">' + e.trim() + '</span>').join('') : '<span style="color:#888;">Non renseigné</span>' }}
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ── MOTIVATION ── -->
+    <div class="sec">
+      <p class="sec-title">✍️ Motivation du candidat</p>
+      <div class="motivation-box">{{ $json.motivation || 'Aucune lettre de motivation fournie.' }}</div>
+    </div>
+
+    <!-- ── ACTIONS RAPIDES ── -->
+    <div class="sec actions">
+      <p style="font-size:13px;color:#888;margin:0 0 14px;">Actions rapides :</p>
+      <a class="btn-action btn-reply"
+         href="mailto:{{ $json.email }}?subject=Suite%20%C3%A0%20votre%20candidature%20chez%20Morais%20Cleaning&body=Bonjour%20{{ $json.nom }}%2C%0A%0ANous%20avons%20bien%20re%C3%A7u%20votre%20candidature%20pour%20le%20poste%20de%20{{ $json.poste }}.%0A%0ANous%20souhaitons%20vous%20proposer%20un%20entretien%20t%C3%A9l%C3%A9phonique...%0A%0ACordialement%2C%0AL%27%C3%A9quipe%20RH%20Morais%20Cleaning">
+        ✉️ Contacter par email
+      </a>
+      <a class="btn-action btn-call" href="tel:{{ $json.telephone }}">
+        📞 Appeler le candidat
+      </a>
+    </div>
+
+  </div><!-- /.body -->
+
+  <div class="foot">
+    Email interne automatique · Morais Cleaning RH · Ne pas répondre directement à cet email.
+  </div>
+
+</div><!-- /.wrapper -->
+</body>
+</html>

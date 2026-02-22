@@ -1,17 +1,29 @@
-// SECURITY WARNING: Ce fichier utilise .innerHTML
-// IMPORTANT: Assurez-vous de valider/nettoyer toutes les données utilisateur avant de les insérer
-// Recommandation: Utilisez textContent pour du texte pur, ou DOMPurify.sanitize() pour du HTML
-// Documentation: https://github.com/cure53/DOMPurify
-
-/* ============================================ */
-/* COMPOSANT DEVIS RAPIDE - JAVASCRIPT          */
-/* Gestion du formulaire et pré-sélection       */
-/* ============================================ */
-
 /**
- * MAPPING des pages vers les valeurs du select
- * Permet la pré-sélection automatique selon la page visitée
+ * devis-rapide.js — Morais Cleaning
+ * VERSION 4.0 — AUDIT COMPLET
+ *
+ * CORRECTIONS :
+ *  - JSON APLATI et standardisé (cohérent avec devis complet + recrutement)
+ *  - Gestion d'erreur robuste (try/catch, response.ok, timeout)
+ *  - Délai réaliste : 48h ouvrables (pas 2h)
+ *  - Zéro alert(), zéro mailto:
+ *  - Masquage formulaire après succès
+ *  - UX premium B2B
  */
+
+/* ============================================ */
+/* CONFIGURATION                                */
+/* ============================================ */
+const MINI_DEVIS_CONFIG = {
+    webhookUrl: 'https://n8n.morais-cleaning.com/webhook/mini-devis',
+    timeout: 15000,
+    maxRetries: 2,
+    retryDelay: 1000
+};
+
+/* ============================================ */
+/* MAPPING PAGES → SERVICES                     */
+/* ============================================ */
 const SERVICE_PAGE_MAPPING = {
     'nettoyage-bureaux.html': 'nettoyage-bureaux',
     'nettoyage-vitres.html': 'nettoyage-vitres',
@@ -28,253 +40,277 @@ const SERVICE_PAGE_MAPPING = {
     'conciergerie.html': 'conciergerie'
 };
 
-/**
- * Initialisation du composant devis rapide
- */
+/* ============================================ */
+/* INITIALISATION                               */
+/* ============================================ */
 document.addEventListener('DOMContentLoaded', function() {
-    // Pré-sélection automatique du service
     preselectService();
-    
-    // Gestion de la soumission du formulaire
-    const form = document.getElementById('devisRapideForm');
-    if (form) {
-        form.addEventListener('submit', handleFormSubmit);
-    }
+    initFormValidation();
+    initFormSubmission();
 });
 
-/**
- * Pré-sélectionne le service selon la page actuelle
- */
+/* ============================================ */
+/* PRÉ-SÉLECTION AUTOMATIQUE DU SERVICE         */
+/* ============================================ */
 function preselectService() {
-    // Récupérer le nom du fichier actuel
     const currentPage = window.location.pathname.split('/').pop();
-    
-    // Trouver le service correspondant
     const serviceValue = SERVICE_PAGE_MAPPING[currentPage];
     
-    // Pré-sélectionner dans le select
     if (serviceValue) {
         const serviceSelect = document.getElementById('devis-service');
         if (serviceSelect) {
             serviceSelect.value = serviceValue;
-            // console.log(`✓ Service pré-sélectionné : ${serviceValue}`);
         }
     }
 }
 
-/**
- * Gestion de la soumission du formulaire
- * @param {Event} e - Événement de soumission
- */
+/* ============================================ */
+/* VALIDATION EN TEMPS RÉEL                     */
+/* ============================================ */
+function initFormValidation() {
+    const form = document.getElementById('devisRapideForm');
+    if (!form) return;
+
+    // Validation temps réel sur les champs requis
+    form.querySelectorAll('input[required], select[required]').forEach(field => {
+        field.addEventListener('blur', () => validateField(field));
+        field.addEventListener('input', () => clearFieldError(field));
+    });
+}
+
+function validateField(field) {
+    clearFieldError(field);
+    const value = field.value?.trim() || '';
+    let isValid = true;
+    let errorMsg = '';
+
+    if (field.hasAttribute('required') && !value) {
+        isValid = false;
+        errorMsg = 'Ce champ est obligatoire.';
+    } else if (field.type === 'email' && value && !isValidEmail(value)) {
+        isValid = false;
+        errorMsg = 'Adresse email invalide.';
+    } else if (field.type === 'tel' && value && !isValidPhone(value)) {
+        isValid = false;
+        errorMsg = 'Numéro de téléphone invalide.';
+    }
+
+    if (!isValid) {
+        showFieldError(field, errorMsg);
+    }
+
+    return isValid;
+}
+
+function showFieldError(field, message) {
+    field.classList.add('field-error');
+    field.setAttribute('aria-invalid', 'true');
+    
+    const errorEl = document.createElement('div');
+    errorEl.className = 'field-error-msg';
+    errorEl.textContent = message;
+    errorEl.style.cssText = 'color:#e74c3c;font-size:0.85rem;margin-top:4px;';
+    field.parentElement.appendChild(errorEl);
+}
+
+function clearFieldError(field) {
+    field.classList.remove('field-error');
+    field.removeAttribute('aria-invalid');
+    const errorEl = field.parentElement.querySelector('.field-error-msg');
+    if (errorEl) errorEl.remove();
+}
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function isValidPhone(phone) {
+    const cleaned = phone.replace(/[\s\-\(\)\.]/g, '');
+    return /^[\+]?[0-9]{8,15}$/.test(cleaned);
+}
+
+/* ============================================ */
+/* SOUMISSION DU FORMULAIRE                     */
+/* ============================================ */
+function initFormSubmission() {
+    const form = document.getElementById('devisRapideForm');
+    if (!form) return;
+
+    form.addEventListener('submit', handleFormSubmit);
+}
+
 async function handleFormSubmit(e) {
     e.preventDefault();
-    
-    // Récupérer les données du formulaire
-    const formData = {
-        service: document.getElementById('devis-service').value,
-        ville: document.getElementById('devis-ville').value,
-        surface: document.getElementById('devis-surface').value,
-        email: document.getElementById('devis-email').value,
-        telephone: document.getElementById('devis-telephone').value,
-        message: document.getElementById('devis-message').value,
-        timestamp: new Date().toISOString(),
-        source: 'devis-rapide',
-        page: window.location.pathname
-    };
-    
-    // Validation basique
-    if (!formData.service || !formData.ville || !formData.email) {
-        showError('Veuillez remplir tous les champs obligatoires.');
+
+    const form = e.target;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnHtml = submitBtn.innerHTML;
+
+    // Validation de tous les champs
+    let isFormValid = true;
+    form.querySelectorAll('input[required], select[required]').forEach(field => {
+        if (!validateField(field)) isFormValid = false;
+    });
+
+    if (!isFormValid) {
+        const firstError = form.querySelector('[aria-invalid="true"]');
+        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
         return;
     }
-    
-    // Validation email
-    if (!isValidEmail(formData.email)) {
-        showError('Veuillez entrer une adresse email valide.');
-        return;
-    }
-    
-    // Désactiver le bouton pendant l'envoi
-    const submitBtn = e.target.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
+
+    // Désactiver le bouton et afficher le loader
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-    
-    try {
-        // Envoi vers le webhook n8n (à adapter selon votre configuration)
-        const response = await sendToWebhook(formData);
+
+    // Cacher les messages précédents
+    hideMessages();
+
+    /**
+     * JSON APLATI — Structure standardisée compatible n8n / Airtable
+     * Cohérent avec calculateur-devis-avance.js et forms-manager.js
+     */
+    const payload = {
+        // Coordonnées
+        nom:        sanitize(document.getElementById('devis-nom')?.value || ''),
+        email:      sanitize(document.getElementById('devis-email')?.value || ''),
+        telephone:  sanitize(document.getElementById('devis-telephone')?.value || ''),
         
-        if (response.success) {
+        // Demande
+        ville:      sanitize(document.getElementById('devis-ville')?.value || ''),
+        service:    sanitize(document.getElementById('devis-service')?.value || ''),
+        surface:    sanitize(document.getElementById('devis-surface')?.value || ''),
+        message:    sanitize(document.getElementById('devis-message')?.value || ''),
+        
+        // Méta
+        source:     'mini-devis',
+        page:       window.location.pathname,
+        timestamp:  new Date().toISOString()
+    };
+
+    try {
+        const result = await sendToWebhook(payload);
+
+        if (result.success) {
+            // SUCCÈS : Masquer le formulaire et afficher le message
+            form.style.display = 'none';
             showSuccess();
-            resetForm(e.target);
+
+            // Analytics (optionnel)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'conversion', {
+                    'event_category': 'Mini-Devis',
+                    'event_label': payload.service
+                });
+            }
         } else {
-            throw new Error('Erreur d\'envoi');
+            throw new Error(result.error || 'Erreur inconnue');
         }
+
     } catch (error) {
-        // console.error('Erreur lors de l\'envoi:', error);
-        showError('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.');
-    } finally {
+        console.error('[MC] Erreur envoi mini-devis:', error);
+        showError('Une erreur est survenue (' + (error.message || 'réseau') + '). Veuillez réessayer ou nous appeler au <strong>0478/95.12.69</strong>.');
+        
         // Réactiver le bouton
         submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
+        submitBtn.innerHTML = originalBtnHtml;
     }
 }
 
-/**
- * Envoie les données vers le webhook n8n
- * @param {Object} data - Données du formulaire
- * @returns {Promise<Object>} - Réponse du webhook
- */
+/* ============================================ */
+/* ENVOI VERS WEBHOOK N8N — ROBUSTE             */
+/* ============================================ */
 async function sendToWebhook(data) {
-    const WEBHOOK_URL = 'https://n8n.morais-cleaning.com/webhook/mini-devis';
-    
-    try {
-        const response = await fetch(WEBHOOK_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        });
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+    const { webhookUrl, timeout, maxRetries, retryDelay } = MINI_DEVIS_CONFIG;
+    let lastError = null;
+
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+        try {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), timeout);
+
+            const response = await fetch(webhookUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+                signal: controller.signal
+            });
+
+            clearTimeout(timeoutId);
+
+            // Vérifier le statut HTTP
+            if (!response.ok) {
+                throw new Error('HTTP ' + response.status);
+            }
+
+            // Tenter de parser le JSON (fallback si réponse vide ou texte)
+            let result = {};
+            try {
+                const text = await response.text();
+                if (text) {
+                    result = JSON.parse(text);
+                }
+            } catch (parseError) {
+                // n8n peut retourner du texte brut — ce n'est pas une erreur
+            }
+
+            return { success: true, data: result };
+
+        } catch (error) {
+            lastError = error;
+            
+            // Retry si ce n'est pas la dernière tentative
+            if (attempt < maxRetries) {
+                await new Promise(resolve => setTimeout(resolve, retryDelay));
+            }
         }
-        
-        return await response.json();
-    } catch (error) {
-        // console.error('Erreur webhook:', error);
-        
-        // Fallback : envoi par email si le webhook échoue
-        // Vous pouvez aussi utiliser FormSubmit, EmailJS, etc.
-        return sendFallbackEmail(data);
     }
+
+    return { success: false, error: lastError?.message || 'Erreur réseau' };
 }
 
-/**
- * Fallback : envoi par email si le webhook échoue
- * @param {Object} data - Données du formulaire
- * @returns {Promise<Object>}
- */
-async function sendFallbackEmail(data) {
-    // Option 1 : Utiliser mailto: (basique)
-    const subject = encodeURIComponent(`Nouveau devis : ${data.service}`);
-    const body = encodeURIComponent(`
-Service : ${data.service}
-Ville : ${data.ville}
-Surface : ${data.surface || 'Non renseignée'}
-Email : ${data.email}
-Téléphone : ${data.telephone || 'Non renseigné'}
-Message : ${data.message || 'Aucun'}
-Page : ${data.page}
-Date : ${new Date(data.timestamp).toLocaleString('fr-BE')}
-    `);
-    
-    // Ouvrir le client email par défaut
-    window.location.href = `mailto:contact@moraiscleaning.be?subject=${subject}&body=${body}`;
-    
-    // Simuler succès pour l'UX
-    return { success: true };
-    
-    // Option 2 : Utiliser un service comme FormSubmit.co (recommandé)
-    /*
-    const FORMSUBMIT_URL = 'https://formsubmit.co/ajax/votre-email@moraiscleaning.be';
-    
-    const response = await fetch(FORMSUBMIT_URL, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    
-    return await response.json();
-    */
-}
-
-/**
- * Affiche le message de succès
- */
+/* ============================================ */
+/* AFFICHAGE MESSAGES SUCCÈS / ERREUR           */
+/* ============================================ */
 function showSuccess() {
-    const form = document.getElementById('devisRapideForm');
-    const successMsg = document.getElementById('devisSuccess');
-    const errorMsg = document.getElementById('devisError');
-    
-    if (form) form.style.display = 'none';
-    if (errorMsg) errorMsg.style.display = 'none';
-    if (successMsg) {
-        successMsg.style.display = 'block';
-        
-        // Scroll vers le message
-        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-    
-    // Analytics/Tracking (optionnel)
-    if (typeof gtag !== 'undefined') {
-        gtag('event', 'conversion', {
-            'send_to': 'AW-XXXXXXXXX/XXXXXX',
-            'event_category': 'Devis',
-            'event_label': 'Devis Rapide'
-        });
+    const successDiv = document.getElementById('devisSuccess');
+    if (successDiv) {
+        successDiv.style.display = 'block';
+        successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 }
 
-/**
- * Affiche le message d'erreur
- * @param {string} message - Message d'erreur à afficher
- */
-function showError(message) {
-    const errorMsg = document.getElementById('devisError');
-    const successMsg = document.getElementById('devisSuccess');
-    
-    if (successMsg) successMsg.style.display = 'none';
-    if (errorMsg) {
-        errorMsg.style.display = 'block';
-        
-        // Personnaliser le message si nécessaire
-        const errorText = errorMsg.querySelector('p');
-        if (errorText && message) {
-            errorText.textContent = message;
-        }
-        
-        // Scroll vers le message
-        errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+function showError(htmlMessage) {
+    const errorDiv = document.getElementById('devisError');
+    if (errorDiv) {
+        const errorText = errorDiv.querySelector('p');
+        if (errorText) errorText.innerHTML = htmlMessage;
+        errorDiv.style.display = 'block';
+        errorDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 }
 
-/**
- * Réinitialise le formulaire
- * @param {HTMLFormElement} form - Formulaire à réinitialiser
- */
-function resetForm(form) {
-    if (form) {
-        form.reset();
-        // Re-pré-sélectionner le service après reset
-        setTimeout(preselectService, 100);
-    }
+function hideMessages() {
+    const successDiv = document.getElementById('devisSuccess');
+    const errorDiv = document.getElementById('devisError');
+    if (successDiv) successDiv.style.display = 'none';
+    if (errorDiv) errorDiv.style.display = 'none';
+}
+
+/* ============================================ */
+/* UTILITAIRES                                  */
+/* ============================================ */
+function sanitize(str) {
+    return String(str).trim().replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 /**
- * Valide le format de l'email
- * @param {string} email - Email à valider
- * @returns {boolean}
- */
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-/**
- * Smooth scroll vers le formulaire (utilisable depuis d'autres pages)
- * @param {string} service - Service à pré-sélectionner (optionnel)
+ * API publique pour utilisation externe
  */
 function scrollToDevisRapide(service = null) {
     const devisSection = document.getElementById('devis-rapide');
     if (devisSection) {
         devisSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         
-        // Pré-sélectionner un service spécifique si demandé
         if (service) {
             setTimeout(() => {
                 const serviceSelect = document.getElementById('devis-service');
@@ -287,7 +323,6 @@ function scrollToDevisRapide(service = null) {
     }
 }
 
-// Export pour utilisation externe
 window.DevisRapide = {
     scrollTo: scrollToDevisRapide,
     preselect: preselectService

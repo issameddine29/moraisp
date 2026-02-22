@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!--
+╔══════════════════════════════════════════════════════════════════╗
+║  EMAIL CLIENT — Confirmation Mini-Devis                          ║
+║  Morais Cleaning — Usage n8n                                     ║
+╠══════════════════════════════════════════════════════════════════╣
+║  Variables n8n (payload aplati depuis devis-rapide.js)           ║
+║                                                                  ║
+║  {{ $json.nom }}         Nom du client                           ║
+║  {{ $json.email }}       Email                                   ║
+║  {{ $json.telephone }}   Téléphone                               ║
+║  {{ $json.ville }}       Ville ou code postal                    ║
+║  {{ $json.service }}     Type de service                         ║
+║  {{ $json.surface }}     Surface ou quantité                     ║
+║  {{ $json.message }}     Message optionnel                       ║
+║  {{ $json.timestamp }}   Horodatage ISO                          ║
+╠══════════════════════════════════════════════════════════════════╣
+║  Champ "Sujet" n8n :                                             ║
+║  Votre demande de devis rapide — Morais Cleaning                 ║
+╚══════════════════════════════════════════════════════════════════╝
+-->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Confirmation de votre demande — Morais Cleaning</title>
+  <!--[if mso]>
+  <noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+  <![endif]-->
+  <style>
+    /* Reset */
+    body, table, td, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+    table, td { mso-table-lspace:0pt; mso-table-rspace:0pt; border-collapse:collapse; }
+    img { border:0; height:auto; outline:none; text-decoration:none; -ms-interpolation-mode:bicubic; }
+    body { margin:0; padding:0; width:100% !important; min-width:100%; background-color:#f2f5f9; }
+
+    /* Wrapper */
+    .email-wrapper  { width:100%; background:#f2f5f9; padding:32px 0; }
+    .email-card     { max-width:600px; margin:0 auto; background:#ffffff; border-radius:12px; overflow:hidden;
+                      box-shadow:0 4px 24px rgba(0,0,0,.08); }
+
+    /* Header */
+    .header         { background:linear-gradient(135deg,#1a3a8f 0%,#0d2560 100%); padding:40px; text-align:center; }
+    .brand-name     { font-family:'Segoe UI',Arial,sans-serif; font-size:28px; font-weight:700;
+                      color:#ffffff; letter-spacing:.4px; margin:0; }
+    .brand-name span{ color:#ff7f50; }
+    .header-tagline { font-family:Arial,sans-serif; font-size:12px; color:rgba(255,255,255,.6);
+                      margin:6px 0 22px; letter-spacing:.8px; text-transform:uppercase; }
+    .header-icon    { font-size:48px; margin-bottom:14px; display:block; }
+    .header-title   { font-family:'Segoe UI',Arial,sans-serif; font-size:22px; font-weight:600;
+                      color:#ffffff; margin:0; line-height:1.4; }
+
+    /* Body */
+    .email-body     { padding:40px; }
+    .greeting       { font-family:'Segoe UI',Arial,sans-serif; font-size:18px; color:#1a2940;
+                      margin:0 0 18px; font-weight:600; }
+    .intro-text     { font-family:Arial,sans-serif; font-size:15px; color:#444; line-height:1.8;
+                      margin:0 0 28px; }
+    .intro-text strong { color:#1a3a8f; }
+
+    /* Récapitulatif */
+    .recap-block    { background:#f8fafd; border-radius:8px; padding:24px; margin-bottom:28px;
+                      border:1px solid #e8eef8; }
+    .recap-title    { font-family:'Segoe UI',Arial,sans-serif; font-size:13px; font-weight:700;
+                      text-transform:uppercase; letter-spacing:1px; color:#1a3a8f;
+                      margin:0 0 16px; padding-bottom:10px; border-bottom:2px solid #e0e8f4; }
+    .recap-row      { display:flex; justify-content:space-between; padding:10px 0;
+                      border-bottom:1px solid #eef2f8; font-family:Arial,sans-serif; font-size:14px; }
+    .recap-row:last-child { border-bottom:none; }
+    .recap-label    { color:#6b7c93; font-weight:600; }
+    .recap-value    { color:#1a2940; text-align:right; max-width:60%; }
+
+    /* Bloc 48h */
+    .highlight-box  { background:linear-gradient(135deg,#e8f4ff,#d4e8ff); border-left:4px solid #1a3a8f;
+                      border-radius:0 8px 8px 0; padding:20px 24px; margin-bottom:28px; }
+    .highlight-box p { font-family:Arial,sans-serif; font-size:15px; color:#1a3560;
+                       margin:0; line-height:1.7; }
+    .highlight-box strong { color:#0d2560; font-size:16px; }
+
+    /* Contact */
+    .contact-box    { background:#fafbfd; border:1px solid #e8eef8; border-radius:8px;
+                      padding:20px 24px; margin-bottom:28px; text-align:center; }
+    .contact-box p  { font-family:Arial,sans-serif; font-size:14px; color:#555;
+                      margin:0 0 10px; line-height:1.6; }
+    .contact-box a  { color:#1a3a8f; text-decoration:none; font-weight:600; }
+    .contact-links  { margin:12px 0; }
+    .contact-links a { display:inline-block; margin:0 12px; }
+
+    /* CTA */
+    .cta-wrap       { text-align:center; margin:0 0 32px; }
+    .cta-btn        { display:inline-block; background:#1a3a8f; color:#ffffff !important;
+                      font-family:'Segoe UI',Arial,sans-serif; font-size:15px; font-weight:600;
+                      text-decoration:none; padding:14px 36px; border-radius:8px; }
+
+    /* Divider */
+    hr.divider      { border:none; border-top:1px solid #e8eef8; margin:28px 0; }
+
+    /* Signature */
+    .signature      { font-family:Arial,sans-serif; font-size:14px; color:#555; line-height:1.8; }
+    .signature strong{ color:#1a2940; }
+    .sig-logo       { font-family:'Segoe UI',Arial,sans-serif; font-size:17px; font-weight:700;
+                      color:#1a3a8f; margin-top:12px; display:block; }
+    .sig-logo span  { color:#ff7f50; }
+
+    /* Footer */
+    .email-footer   { background:#f2f5f9; padding:22px 40px; text-align:center; }
+    .footer-text    { font-family:Arial,sans-serif; font-size:12px; color:#a0aabb; line-height:1.7; margin:0; }
+    .footer-text a  { color:#6a80aa; text-decoration:none; }
+
+    /* Responsive */
+    @media screen and (max-width:620px) {
+      .email-body  { padding:24px 20px !important; }
+      .header      { padding:28px 20px !important; }
+      .header-title{ font-size:18px !important; }
+      .recap-block { padding:18px !important; }
+      .email-footer{ padding:18px 20px !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="email-wrapper">
+<div class="email-card">
+
+  <!-- ══ EN-TÊTE ══ -->
+  <div class="header">
+    <p class="brand-name">Morais <span>Cleaning</span></p>
+    <p class="header-tagline">Nettoyage professionnel — Bruxelles &amp; environs</p>
+    <span class="header-icon">✅</span>
+    <p class="header-title">Votre demande de devis a bien été reçue</p>
+  </div>
+
+  <!-- ══ CORPS ══ -->
+  <div class="email-body">
+
+    <p class="greeting">Bonjour {{ $json.nom }},</p>
+
+    <p class="intro-text">
+      Nous vous remercions pour votre demande de devis.<br><br>
+      Notre équipe commerciale l'examine avec attention et reviendra vers vous dans un délai maximum de <strong>48 heures ouvrables</strong> avec une proposition personnalisée, transparente et sans engagement.
+    </p>
+
+    <!-- Récapitulatif -->
+    <div class="recap-block">
+      <p class="recap-title">📋 Récapitulatif de votre demande</p>
+      <div class="recap-row">
+        <span class="recap-label">Service demandé</span>
+        <span class="recap-value">{{ $json.service }}</span>
+      </div>
+      <div class="recap-row">
+        <span class="recap-label">Localisation</span>
+        <span class="recap-value">{{ $json.ville }}</span>
+      </div>
+      <div class="recap-row">
+        <span class="recap-label">Surface / Quantité</span>
+        <span class="recap-value">{{ $json.surface || '—' }}</span>
+      </div>
+      <div class="recap-row">
+        <span class="recap-label">Votre message</span>
+        <span class="recap-value">{{ $json.message || 'Aucun message' }}</span>
+      </div>
+    </div>
+
+    <!-- Bloc 48h -->
+    <div class="highlight-box">
+      <p>
+        <strong>⏱ Délai de réponse garanti : 48 heures ouvrables maximum.</strong><br>
+        Nous analysons chaque demande individuellement afin de vous proposer un devis adapté à vos besoins réels, sans frais cachés ni mauvaise surprise.
+      </p>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-box">
+      <p><strong>Une question en attendant ?</strong></p>
+      <div class="contact-links">
+        <a href="tel:+32478951269">📞 0478 95 12 69</a>
+        <a href="mailto:info-devis@morais-cleaning.com">✉️ info-devis@morais-cleaning.com</a>
+      </div>
+      <p style="font-size:12px;color:#888;margin-top:8px !important;">
+        Disponible du lundi au vendredi, 8h – 18h · Samedi, 9h – 13h
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-wrap">
+      <a class="cta-btn" href="https://moraiscleaning.be">
+        Découvrir tous nos services
+      </a>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Signature -->
+    <p class="signature">
+      Avec nos meilleures salutations,<br><br>
+      <strong>L'équipe commerciale</strong><br>
+      <span class="sig-logo">Morais <span>Cleaning</span></span>
+      <span style="display:block;font-size:13px;color:#8a9ab0;margin-top:4px;">
+        Nettoyage professionnel — Bruxelles, Belgique
+      </span>
+    </p>
+
+  </div><!-- /.email-body -->
+
+  <!-- ══ PIED DE PAGE ══ -->
+  <div class="email-footer">
+    <p class="footer-text">
+      Morais Cleaning ·
+      <a href="https://moraiscleaning.be">moraiscleaning.be</a> ·
+      <a href="tel:+32478951269">0478 95 12 69</a><br>
+      <a href="mailto:info@morais-cleaning.com">info@morais-cleaning.com</a> ·
+      Bruxelles, Belgique<br><br>
+      Cet email a été généré automatiquement suite à votre demande sur notre site.<br>
+      Si vous pensez l'avoir reçu par erreur, veuillez ignorer ce message.
+    </p>
+  </div>
+
+</div><!-- /.email-card -->
+</div><!-- /.email-wrapper -->
+</body>
+</html>
