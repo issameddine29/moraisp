@@ -667,132 +667,149 @@
 <!-- COMPOSANT DEVIS RAPIDE                       -->
 <!-- À intégrer dans TOUTES les pages services    -->
 <!-- ============================================ -->
-<section class="devis-rapide-section" id="devis-rapide">
-<div class="container">
-<div class="devis-rapide-header">
-<div class="devis-badge">
-<i class="fas fa-bolt"></i>
-<span>DEVIS RAPIDE GRATUIT</span>
-</div>
-<h2 class="devis-title">Obtenez votre estimation en 30 secondes</h2>
-<p class="devis-subtitle">
-                    Remplissez ce formulaire rapide et recevez votre devis personnalisé par email ou téléphone sous 2h
-                    ouvrées.
+    <section class="devis-rapide-section" id="devis-rapide">
+        <div class="container">
+            <div class="devis-rapide-header">
+                <div class="devis-badge">
+                    <i class="fas fa-bolt"></i>
+                    <span>DEVIS RAPIDE GRATUIT</span>
+                </div>
+                <h2 class="devis-title">Obtenez votre estimation personnalisée</h2>
+                <p class="devis-subtitle">
+                    Remplissez ce formulaire et recevez votre devis sur mesure sous <strong>48 heures ouvrables maximum</strong>.
                 </p>
-</div>
-<form class="devis-rapide-form" id="devisRapideForm">
-<!-- Service (pré-sélectionné automatiquement) -->
-<div class="form-group">
-<label class="form-label" for="devis-service">
-<i class="fas fa-broom"></i>
+            </div>
+            <form class="devis-rapide-form" id="devisRapideForm" data-testid="mini-devis-form">
+                <!-- Nom (cohérence avec autres formulaires) -->
+                <div class="form-group">
+                    <label class="form-label" for="devis-nom">
+                        <i class="fas fa-user"></i>
+                        Votre nom <span class="required">*</span>
+                    </label>
+                    <input class="form-control" id="devis-nom" name="nom" placeholder="Nom et prénom" required="" type="text" data-testid="mini-devis-nom" />
+                </div>
+                <!-- Service (pré-sélectionné automatiquement) -->
+                <div class="form-group">
+                    <label class="form-label" for="devis-service">
+                        <i class="fas fa-broom"></i>
                         Service demandé <span class="required">*</span>
-</label>
-<select class="form-control" id="devis-service" name="service" required="">
-<option value="">-- Choisissez un service --</option>
-<option value="nettoyage-bureaux">Nettoyage de Bureaux</option>
-<option value="nettoyage-vitres">Nettoyage de Vitres</option>
-<option value="maison-appartement">Nettoyage Maison &amp; Appartement</option>
-<option value="fin-de-bail">Nettoyage Fin de Bail</option>
-<option value="apres-travaux">Nettoyage Après Travaux</option>
-<option value="locaux-commerciaux">Nettoyage Locaux Commerciaux</option>
-<option value="copropriete">Nettoyage de Copropriétés</option>
-<option value="cabinets-medicaux">Nettoyage Cabinets Médicaux</option>
-<option value="industriel">Nettoyage Industriel</option>
-<option value="parkings-garages">Nettoyage Parkings &amp; Garages</option>
-<option value="tapis-moquettes">Nettoyage Tapis &amp; Moquettes</option>
-<option value="canapes-fauteuils">Nettoyage Canapés &amp; Fauteuils</option>
-<option value="conciergerie">Service de Conciergerie</option>
-</select>
-</div>
-<!-- Localisation -->
-<div class="form-row">
-<div class="form-group">
-<label class="form-label" for="devis-ville">
-<i class="fas fa-map-marker-alt"></i>
+                    </label>
+                    <select class="form-control" id="devis-service" name="service" required="" data-testid="mini-devis-service">
+                        <option value="">-- Choisissez un service --</option>
+                        <option value="nettoyage-bureaux">Nettoyage de Bureaux</option>
+                        <option value="nettoyage-vitres">Nettoyage de Vitres</option>
+                        <option value="maison-appartement">Nettoyage Maison &amp; Appartement</option>
+                        <option value="fin-de-bail">Nettoyage Fin de Bail</option>
+                        <option value="apres-travaux">Nettoyage Après Travaux</option>
+                        <option value="locaux-commerciaux">Nettoyage Locaux Commerciaux</option>
+                        <option value="copropriete">Nettoyage de Copropriétés</option>
+                        <option value="cabinets-medicaux">Nettoyage Cabinets Médicaux</option>
+                        <option value="industriel">Nettoyage Industriel</option>
+                        <option value="parkings-garages">Nettoyage Parkings &amp; Garages</option>
+                        <option value="tapis-moquettes">Nettoyage Tapis &amp; Moquettes</option>
+                        <option value="canapes-fauteuils">Nettoyage Canapés &amp; Fauteuils</option>
+                        <option value="conciergerie">Service de Conciergerie</option>
+                    </select>
+                </div>
+                <!-- Localisation + Surface -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="devis-ville">
+                            <i class="fas fa-map-marker-alt"></i>
                             Ville ou Code Postal <span class="required">*</span>
-</label>
-<input class="form-control" id="devis-ville" name="ville" placeholder="Ex: Bruxelles, 1000, Schaerbeek..." required="" type="text"/>
-</div>
-<!-- Surface / Quantité -->
-<div class="form-group">
-<label class="form-label" for="devis-surface">
-<i class="fas fa-ruler-combined"></i>
+                        </label>
+                        <input class="form-control" id="devis-ville" name="ville" placeholder="Ex: Bruxelles, 1000, Schaerbeek..." required="" type="text" data-testid="mini-devis-ville" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="devis-surface">
+                            <i class="fas fa-ruler-combined"></i>
                             Surface (m²) ou Quantité
                         </label>
-<input class="form-control" id="devis-surface" name="surface" placeholder="Ex: 150 m², 3 pièces..." type="text"/>
-</div>
-</div>
-<!-- Contact -->
-<div class="form-row">
-<div class="form-group">
-<label class="form-label" for="devis-email">
-<i class="fas fa-envelope"></i>
+                        <input class="form-control" id="devis-surface" name="surface" placeholder="Ex: 150 m², 3 pièces..." type="text" data-testid="mini-devis-surface" />
+                    </div>
+                </div>
+                <!-- Contact -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="devis-email">
+                            <i class="fas fa-envelope"></i>
                             Email <span class="required">*</span>
-</label>
-<input class="form-control" id="devis-email" name="email" placeholder="votre@email.com" required="" type="email"/>
-</div>
-<div class="form-group">
-<label class="form-label" for="devis-telephone">
-<i class="fas fa-phone"></i>
+                        </label>
+                        <input class="form-control" id="devis-email" name="email" placeholder="votre@email.com" required="" type="email" data-testid="mini-devis-email" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="devis-telephone">
+                            <i class="fas fa-phone"></i>
                             Téléphone
                         </label>
-<input class="form-control" id="devis-telephone" name="telephone" placeholder="+32 XXX XX XX XX" type="tel"/>
-</div>
-</div>
-<!-- Message optionnel -->
-<div class="form-group">
-<label class="form-label" for="devis-message">
-<i class="fas fa-comment"></i>
+                        <input class="form-control" id="devis-telephone" name="telephone" placeholder="+32 XXX XX XX XX" type="tel" data-testid="mini-devis-telephone" />
+                    </div>
+                </div>
+                <!-- Message optionnel -->
+                <div class="form-group">
+                    <label class="form-label" for="devis-message">
+                        <i class="fas fa-comment"></i>
                         Détails supplémentaires (optionnel)
                     </label>
-<textarea class="form-control" id="devis-message" name="message" placeholder="Précisez vos besoins spécifiques, horaires souhaités, fréquence..." rows="3"></textarea>
-</div>
-<!-- Submit Button -->
-<div class="form-actions">
-<button class="btn btn-primary btn-large" type="submit">
-<i class="fas fa-paper-plane"></i>
+                    <textarea class="form-control" id="devis-message" name="message" placeholder="Précisez vos besoins spécifiques, horaires souhaités, fréquence..." rows="3" data-testid="mini-devis-message"></textarea>
+                </div>
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button class="btn btn-primary btn-large" type="submit" data-testid="mini-devis-submit">
+                        <i class="fas fa-paper-plane"></i>
                         Recevoir mon devis gratuit
                     </button>
-<p class="form-note">
-<i class="fas fa-shield-alt"></i>
+                    <p class="form-note">
+                        <i class="fas fa-shield-alt"></i>
                         Vos données sont sécurisées et ne seront jamais partagées
                     </p>
-</div>
-<!-- Success Message (hidden by default) -->
-<div class="form-success" id="devisSuccess" style="display: none;">
-<i class="fas fa-check-circle"></i>
-<h3>Demande envoyée avec succès !</h3>
-<p>Nous vous répondrons sous 2h ouvrées avec votre devis personnalisé.</p>
-</div>
-<!-- Error Message (hidden by default) -->
-<div class="form-error" id="devisError" style="display: none;">
-<i class="fas fa-exclamation-triangle"></i>
-<h3>Une erreur est survenue</h3>
-<p>Veuillez réessayer ou nous contacter directement.</p>
-</div>
-</form>
-<!-- Trust Badges -->
-<div class="devis-trust-badges">
-<div class="trust-badge">
-<i class="fas fa-clock"></i>
-<span>Réponse sous 2h</span>
-</div>
-<div class="trust-badge">
-<i class="fas fa-euro-sign"></i>
-<span>Devis 100% gratuit</span>
-</div>
-<div class="trust-badge">
-<i class="fas fa-handshake"></i>
-<span>Sans engagement</span>
-</div>
-<div class="trust-badge">
-<i class="fas fa-award"></i>
-<span>Prix transparents</span>
-</div>
-</div>
-</div>
-</section>
-<!-- FIN DEVIS RAPIDE -->
+                </div>
+            </form>
+            <!-- Success Message (masqué par défaut) -->
+            <div class="form-success" id="devisSuccess" style="display:none;max-width:580px;margin:30px auto;padding:45px 35px;background:linear-gradient(135deg,#e8f5e9 0%,#c8e6c9 100%);border:1px solid #a5d6a7;border-radius:12px;text-align:center;" role="status" aria-live="polite" data-testid="mini-devis-success">
+                <div style="font-size:3.2rem;margin-bottom:16px;">✅</div>
+                <h3 style="font-size:1.5rem;margin:0 0 14px;color:#1b5e20;font-weight:700;">Demande bien reçue !</h3>
+                <p style="font-size:1rem;line-height:1.8;margin:0;color:#2e7d32;">
+                    Merci pour votre confiance. Notre équipe commerciale examine votre demande<br />
+                    et vous recontactera dans un délai maximum de <strong>48 heures ouvrables</strong>.
+                </p>
+                <div style="margin-top:24px;padding-top:20px;border-top:1px solid #a5d6a7;">
+                    <p style="font-size:0.88rem;color:#388e3c;margin:0;">
+                        <i class="fas fa-envelope" style="margin-right:6px;"></i>
+                        Un email de confirmation vous a été envoyé.
+                    </p>
+                </div>
+            </div>
+            <!-- Error Message (masqué par défaut) -->
+            <div class="form-error" id="devisError" style="display:none;max-width:580px;margin:20px auto;padding:18px 22px;background:#ffebee;border:1px solid #ef9a9a;border-radius:8px;text-align:center;" role="alert" aria-live="assertive" data-testid="mini-devis-error">
+                <i class="fas fa-exclamation-triangle" style="color:#c62828;margin-right:8px;"></i>
+                <h3 style="display:inline;font-size:1rem;color:#c62828;margin:0;">Une erreur est survenue</h3>
+                <p style="font-size:0.92rem;color:#b71c1c;margin:10px 0 0;">
+                    Veuillez réessayer ou nous contacter directement au <strong>0478/95.12.69</strong>.
+                </p>
+            </div>
+            <!-- Trust Badges -->
+            <div class="devis-trust-badges">
+                <div class="trust-badge">
+                    <i class="fas fa-clock"></i>
+                    <span>Réponse sous 48h</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-euro-sign"></i>
+                    <span>Devis 100% gratuit</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-handshake"></i>
+                    <span>Sans engagement</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-award"></i>
+                    <span>Prix transparents</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FIN DEVIS RAPIDE -->
 <!-- Footer Container -->
 <div id="navbar-container">
 </div>
