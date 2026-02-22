@@ -98,7 +98,7 @@
   "quickQuote": {
     "badge": "DEVIS RAPIDE GRATUIT",
     "title": "Obtenez votre estimation en 30 secondes",
-    "subtitle": "Remplissez ce formulaire rapide et recevez votre devis personnalisé par email ou téléphone sous 2h ouvrées.",
+    "subtitle": "Remplissez ce formulaire rapide et recevez votre devis personnalisé par email ou téléphone sous 48h ouvrées.",
     "serviceLabel": "Service demandé",
     "cityLabel": "Ville ou Code Postal",
     "cityPlaceholder": "Ex: Bruxelles, 1000, Schaerbeek...",
@@ -113,10 +113,10 @@
     "submitBtn": "Recevoir mon devis gratuit",
     "securityNote": "Vos données sont sécurisées et ne seront jamais partagées",
     "successTitle": "Demande envoyée avec succès !",
-    "successMessage": "Nous vous répondrons sous 2h ouvrées avec votre devis personnalisé.",
+    "successMessage": "Nous vous répondrons sous 48h ouvrées avec votre devis personnalisé.",
     "errorTitle": "Une erreur est survenue",
     "errorMessage": "Veuillez réessayer ou nous contacter directement.",
-    "trustResponse": "Réponse sous 2h",
+    "trustResponse": "Réponse sous 48h",
     "trustFree": "Devis 100% gratuit",
     "trustNoCommit": "Sans engagement",
     "trustTransparent": "Prix transparents"
