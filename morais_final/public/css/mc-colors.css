@@ -1,0 +1,180 @@
+/**
+ * ============================================================================
+ * MORAIS CLEANING - PALETTE COULEURS OFFICIELLE
+ * ============================================================================
+ * Basée strictement sur le logo officiel (rouge + bleu métallique 3D)
+ * Date: 20 janvier 2026
+ * Version: 1.0
+ * 
+ * RÈGLES STRICTES:
+ * - Rouge = ACTION/URGENCE uniquement
+ * - Bleu = STRUCTURE/CONFIANCE
+ * - 1 CTA rouge maximum par section
+ * - Aucune couleur inventée (pas de vert, jaune, etc.)
+ * ============================================================================
+ */
+
+:root {
+  /* ========================================================================
+     COULEURS PRINCIPALES (EXTRAITES DU LOGO)
+     ======================================================================== */
+  
+  /* ROUGE - Du logo "MORAIS" */
+  --mc-red-primary: #C93131;      /* Rouge principal - CTA, actions importantes */
+  --mc-red-dark: #A82525;         /* Rouge foncé - Hover CTA, états critiques */
+  --mc-red-light: #E04545;        /* Rouge clair - Badges urgents, hover subtil */
+  
+  /* BLEU - Du logo "CLEANING" */
+  --mc-blue-primary: #2C5AA0;     /* Bleu principal - Titres, navbar, structure */
+  --mc-blue-dark: #1A4478;        /* Bleu foncé - Navbar dark, hover liens */
+  --mc-blue-light: #4A7BC8;       /* Bleu clair - Backgrounds sections, badges info */
+  
+  /* ========================================================================
+     COULEURS NEUTRES (HIÉRARCHIE TEXTE)
+     ======================================================================== */
+  
+  --mc-gray-900: #1A1A1A;         /* Noir quasi-pur - Titres Hero uniquement */
+  --mc-gray-800: #2C3E50;         /* Gris très foncé - Corps de texte principal */
+  --mc-gray-600: #6C757D;         /* Gris moyen - Texte secondaire, sous-titres */
+  --mc-gray-400: #ADB5BD;         /* Gris clair - Placeholders, texte désactivé */
+  --mc-gray-200: #E0E6EF;         /* Gris très clair - Bordures, séparateurs */
+  --mc-gray-100: #F8F9FA;         /* Gris fond clair - Backgrounds sections */
+  
+  --mc-white: #FFFFFF;            /* Blanc pur - Texte sur foncé, cards */
+  --mc-black: #000000;            /* Noir pur - Ombres uniquement */
+  
+  /* ========================================================================
+     COULEURS SÉMANTIQUES (PAS DE COULEURS INVENTÉES)
+     ======================================================================== */
+  
+  --mc-success: var(--mc-blue-primary);   /* Succès = bleu (pas de vert) */
+  --mc-warning: var(--mc-red-primary);    /* Attention = rouge (pas de jaune) */
+  --mc-critical: var(--mc-red-dark);      /* Critique = rouge foncé */
+  --mc-info: var(--mc-blue-light);        /* Info = bleu clair */
+  
+  /* ========================================================================
+     BACKGROUNDS & GRADIENTS
+     ======================================================================== */
+  
+  /* Dégradés bleu (pour sections, hero, footer) */
+  --mc-gradient-blue: linear-gradient(135deg, var(--mc-blue-dark) 0%, var(--mc-blue-primary) 100%);
+  --mc-gradient-blue-light: linear-gradient(135deg, var(--mc-blue-primary) 0%, var(--mc-blue-light) 100%);
+  
+  /* Dégradés rouge (pour CTA, badges urgents uniquement) */
+  --mc-gradient-red: linear-gradient(135deg, var(--mc-red-dark) 0%, var(--mc-red-primary) 100%);
+  
+  /* Backgrounds avec opacité (pour cartes, sections) */
+  --mc-bg-blue-light: rgba(44, 90, 160, 0.05);    /* Bleu très léger */
+  --mc-bg-blue-medium: rgba(44, 90, 160, 0.1);    /* Bleu léger */
+  --mc-bg-red-light: rgba(201, 49, 49, 0.05);     /* Rouge très léger (urgence) */
+  
+  /* ========================================================================
+     OMBRES (DEPTH & ELEVATION)
+     ======================================================================== */
+  
+  --mc-shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --mc-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --mc-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+  --mc-shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.20);
+  
+  /* Ombres colorées (pour hover) */
+  --mc-shadow-blue: 0 8px 24px rgba(44, 90, 160, 0.2);
+  --mc-shadow-red: 0 8px 24px rgba(201, 49, 49, 0.25);
+  
+  /* ========================================================================
+     TRANSITIONS (COHÉRENCE ANIMATIONS)
+     ======================================================================== */
+  
+  --mc-transition-fast: 0.15s ease;
+  --mc-transition-base: 0.3s ease;
+  --mc-transition-slow: 0.5s ease;
+  
+  /* ========================================================================
+     SPACING (SYSTEM 8px)
+     ======================================================================== */
+  
+  --mc-space-xs: 0.5rem;   /* 8px */
+  --mc-space-sm: 1rem;     /* 16px */
+  --mc-space-md: 1.5rem;   /* 24px */
+  --mc-space-lg: 2rem;     /* 32px */
+  --mc-space-xl: 3rem;     /* 48px */
+  --mc-space-2xl: 4rem;    /* 64px */
+  
+  /* ========================================================================
+     BORDER RADIUS
+     ======================================================================== */
+  
+  --mc-radius-sm: 4px;
+  --mc-radius-md: 8px;
+  --mc-radius-lg: 12px;
+  --mc-radius-xl: 16px;
+  --mc-radius-full: 9999px;
+  
+  /* ========================================================================
+     TYPOGRAPHY WEIGHTS
+     ======================================================================== */
+  
+  --mc-font-normal: 400;
+  --mc-font-medium: 500;
+  --mc-font-semibold: 600;
+  --mc-font-bold: 700;
+}
+
+/* ============================================================================
+   CLASSES UTILITAIRES - COULEURS DE TEXTE
+   ============================================================================ */
+
+.text-blue { color: var(--mc-blue-primary); }
+.text-blue-dark { color: var(--mc-blue-dark); }
+.text-blue-light { color: var(--mc-blue-light); }
+
+.text-red { color: var(--mc-red-primary); }
+.text-red-dark { color: var(--mc-red-dark); }
+.text-red-light { color: var(--mc-red-light); }
+
+.text-gray-900 { color: var(--mc-gray-900); }
+.text-gray-800 { color: var(--mc-gray-800); }
+.text-gray-600 { color: var(--mc-gray-600); }
+.text-gray-400 { color: var(--mc-gray-400); }
+
+.text-white { color: var(--mc-white); }
+
+/* ============================================================================
+   CLASSES UTILITAIRES - BACKGROUNDS
+   ============================================================================ */
+
+.bg-blue { background-color: var(--mc-blue-primary); }
+.bg-blue-dark { background-color: var(--mc-blue-dark); }
+.bg-blue-light { background-color: var(--mc-bg-blue-light); }
+
+.bg-red { background-color: var(--mc-red-primary); }
+.bg-red-light { background-color: var(--mc-bg-red-light); }
+
+.bg-gray-100 { background-color: var(--mc-gray-100); }
+.bg-white { background-color: var(--mc-white); }
+
+.bg-gradient-blue { background: var(--mc-gradient-blue); }
+.bg-gradient-red { background: var(--mc-gradient-red); }
+
+/* ============================================================================
+   CLASSES UTILITAIRES - BORDURES
+   ============================================================================ */
+
+.border-blue { border-color: var(--mc-blue-primary); }
+.border-blue-dark { border-color: var(--mc-blue-dark); }
+.border-red { border-color: var(--mc-red-primary); }
+.border-gray-200 { border-color: var(--mc-gray-200); }
+
+/* ============================================================================
+   CLASSES UTILITAIRES - OMBRES
+   ============================================================================ */
+
+.shadow-sm { box-shadow: var(--mc-shadow-sm); }
+.shadow-md { box-shadow: var(--mc-shadow-md); }
+.shadow-lg { box-shadow: var(--mc-shadow-lg); }
+.shadow-blue { box-shadow: var(--mc-shadow-blue); }
+.shadow-red { box-shadow: var(--mc-shadow-red); }
+
+/* ============================================================================
+   FIN DU FICHIER - VARIABLES MORAIS CLEANING
+   ============================================================================ */

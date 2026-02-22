@@ -1,0 +1,15 @@
+{
+  "name": "Morais Cleaning",
+  "short_name": "Morais",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1A4478",
+  "icons": [
+    {
+      "src": "/public/assets/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}

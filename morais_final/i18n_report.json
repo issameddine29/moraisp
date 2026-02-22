@@ -1,0 +1,41 @@
+{
+  "validation_date": "/home/claude/morais-audit",
+  "summary": {
+    "total_pages": 1,
+    "total_errors": 0,
+    "total_warnings": 0
+  },
+  "languages": [
+    "fr",
+    "en",
+    "nl"
+  ],
+  "pages": {
+    "index": {
+      "page": "index",
+      "total_keys": 73,
+      "languages": {
+        "fr": {
+          "total": 73,
+          "missing": [],
+          "extra": [],
+          "completeness": 100.0
+        },
+        "en": {
+          "total": 73,
+          "missing": [],
+          "extra": [],
+          "completeness": 100.0
+        },
+        "nl": {
+          "total": 73,
+          "missing": [],
+          "extra": [],
+          "completeness": 100.0
+        }
+      }
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

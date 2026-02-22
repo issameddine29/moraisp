@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--
+╔══════════════════════════════════════════════════════════════════╗
+║  EMAIL CLIENT — Confirmation de demande de devis                ║
+║  Morais Cleaning — Usage n8n                                     ║
+╠══════════════════════════════════════════════════════════════════╣
+║  Variables n8n (payload aplati depuis calculateur-devis-avance) ║
+║                                                                  ║
+║  {{ $json.nom }}             Nom du client                       ║
+║  {{ $json.email }}           Email                               ║
+║  {{ $json.telephone }}       Téléphone                           ║
+║  {{ $json.societe }}         Société (optionnel)                 ║
+║  {{ $json.adresse }}         Adresse du chantier                 ║
+║  {{ $json.service }}         Type de service sélectionné         ║
+║  {{ $json.surface }}         Surface en m²                       ║
+║  {{ $json.frequence }}       Fréquence choisie                   ║
+║  {{ $json.services_supplementaires }} Options choisies           ║
+║  {{ $json.message }}         Message libre du client             ║
+║  {{ $json.estimation_total }} Estimation en €                    ║
+║  {{ $json.timestamp }}       Horodatage ISO                      ║
+╠══════════════════════════════════════════════════════════════════╣
+║  Champ "Sujet" n8n :                                             ║
+║  Votre demande de devis — Morais Cleaning                        ║
+╚══════════════════════════════════════════════════════════════════╝
+-->
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Confirmation de votre demande de devis — Morais Cleaning</title>
+  <!--[if mso]>
+  <noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+  <![endif]-->
+  <style>
+    /* Reset */
+    body, table, td, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+    table, td { mso-table-lspace:0pt; mso-table-rspace:0pt; border-collapse:collapse; }
+    img { border:0; height:auto; outline:none; text-decoration:none; -ms-interpolation-mode:bicubic; }
+    body { margin:0; padding:0; width:100% !important; min-width:100%; background-color:#f2f5f9; }
+
+    /* Wrapper */
+    .email-wrapper  { width:100%; background:#f2f5f9; padding:32px 0; }
+    .email-card     { max-width:600px; margin:0 auto; background:#ffffff; border-radius:10px; overflow:hidden;
+                      box-shadow:0 3px 20px rgba(0,0,0,.09); }
+
+    /* Header */
+    .header         { background:linear-gradient(135deg,#1a3a8f 0%,#0d2560 100%); padding:38px 40px 32px; text-align:center; }
+    .header-brand   { display:inline-block; }
+    .brand-name     { font-family:'Segoe UI',Arial,sans-serif; font-size:26px; font-weight:700;
+                      color:#ffffff; letter-spacing:.4px; margin:0; }
+    .brand-name span{ color:#ff7f50; }
+    .header-tagline { font-family:Arial,sans-serif; font-size:13px; color:rgba(255,255,255,.65);
+                      margin:6px 0 0; letter-spacing:.5px; text-transform:uppercase; }
+    .header-title   { font-family:'Segoe UI',Arial,sans-serif; font-size:22px; font-weight:600;
+                      color:#ffffff; margin:22px 0 0; line-height:1.35; }
+
+    /* Body */
+    .email-body     { padding:36px 40px; }
+    .greeting       { font-family:'Segoe UI',Arial,sans-serif; font-size:17px; color:#1a2940;
+                      margin:0 0 16px; font-weight:600; }
+    .intro-text     { font-family:Arial,sans-serif; font-size:15px; color:#444; line-height:1.75;
+                      margin:0 0 28px; }
+    .intro-text strong { color:#1a3a8f; }
+
+    /* Recap block */
+    .recap-title    { font-family:'Segoe UI',Arial,sans-serif; font-size:12px; font-weight:700;
+                      text-transform:uppercase; letter-spacing:1.2px; color:#1a3a8f;
+                      border-bottom:2px solid #e8eef8; padding-bottom:8px; margin:0 0 0; }
+    .recap-table    { width:100%; border-collapse:collapse; margin-bottom:24px; }
+    .recap-table tr { border-bottom:1px solid #f0f3f8; }
+    .recap-table tr:last-child { border-bottom:none; }
+    .recap-table td { font-family:Arial,sans-serif; font-size:14px; padding:11px 8px;
+                      vertical-align:top; }
+    .recap-table .lbl{ color:#7a8ca8; font-weight:600; width:42%; }
+    .recap-table .val{ color:#1a2940; }
+
+    /* Estimation badge */
+    .estimation-wrap{ text-align:center; margin:4px 0 28px; }
+    .estimation-badge{display:inline-block; background:linear-gradient(135deg,#ff7f50,#e8632a);
+                      color:#fff; font-family:'Segoe UI',Arial,sans-serif;
+                      font-size:20px; font-weight:700; padding:12px 28px;
+                      border-radius:30px; letter-spacing:.3px; }
+    .estimation-note{ font-family:Arial,sans-serif; font-size:12px; color:#9aabb8;
+                      display:block; margin-top:8px; }
+
+    /* Reassurance strip */
+    .reassurance    { background:#f0f6ff; border-left:4px solid #1a3a8f; border-radius:0 6px 6px 0;
+                      padding:16px 20px; margin:0 0 28px; }
+    .reassurance p  { font-family:Arial,sans-serif; font-size:14px; color:#2c4a7a;
+                      line-height:1.7; margin:0; }
+
+    /* Contact strip */
+    .contact-strip  { background:#fafbfd; border:1px solid #e8eef8; border-radius:7px;
+                      padding:18px 22px; margin:0 0 28px; }
+    .contact-strip p{ font-family:Arial,sans-serif; font-size:14px; color:#555;
+                      margin:0 0 8px; line-height:1.6; }
+    .contact-strip p:last-child { margin:0; }
+    .contact-strip a{ color:#1a3a8f; text-decoration:none; font-weight:600; }
+
+    /* CTA */
+    .cta-wrap       { text-align:center; margin:0 0 32px; }
+    .cta-btn        { display:inline-block; background:#1a3a8f; color:#ffffff !important;
+                      font-family:'Segoe UI',Arial,sans-serif; font-size:15px; font-weight:600;
+                      text-decoration:none; padding:14px 34px; border-radius:7px;
+                      letter-spacing:.2px; }
+
+    /* Divider */
+    hr.divider      { border:none; border-top:1px solid #e8eef8; margin:28px 0; }
+
+    /* Signature */
+    .signature      { font-family:Arial,sans-serif; font-size:14px; color:#555; line-height:1.8; }
+    .signature strong{ color:#1a2940; }
+    .sig-logo       { font-family:'Segoe UI',Arial,sans-serif; font-size:17px; font-weight:700;
+                      color:#1a3a8f; margin-top:12px; display:block; }
+    .sig-logo span  { color:#ff7f50; }
+
+    /* Footer */
+    .email-footer   { background:#f2f5f9; padding:20px 40px; text-align:center; }
+    .footer-text    { font-family:Arial,sans-serif; font-size:12px; color:#a0aabb; line-height:1.7; margin:0; }
+    .footer-text a  { color:#6a80aa; text-decoration:none; }
+
+    /* Responsive */
+    @media screen and (max-width:620px) {
+      .email-body  { padding:24px 22px !important; }
+      .header      { padding:28px 22px 24px !important; }
+      .header-title{ font-size:18px !important; }
+      .recap-table .lbl { width:40%; }
+      .email-footer{ padding:16px 22px !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="email-wrapper">
+<div class="email-card">
+
+  <!-- ══ EN-TÊTE ══ -->
+  <div class="header">
+    <div class="header-brand">
+      <p class="brand-name">Morais <span>Cleaning</span></p>
+      <p class="header-tagline">Nettoyage professionnel — Bruxelles &amp; environs</p>
+    </div>
+    <p class="header-title">Votre demande de devis a bien été reçue</p>
+  </div>
+
+  <!-- ══ CORPS ══ -->
+  <div class="email-body">
+
+    <p class="greeting">Bonjour {{ $json.nom }},</p>
+
+    <p class="intro-text">
+      Nous accusons réception de votre demande de devis et vous en remercions.<br><br>
+      Notre équipe l'examine avec attention et reviendra vers vous dans les
+      <strong>24 à 48 heures ouvrables</strong> avec une proposition personnalisée,
+      transparente et sans engagement.
+    </p>
+
+    <!-- Récapitulatif -->
+    <p class="recap-title">Récapitulatif de votre demande</p>
+
+    <table class="recap-table">
+      <tr>
+        <td class="lbl">Nom</td>
+        <td class="val">{{ $json.nom }}</td>
+      </tr>
+      <!-- Afficher la société uniquement si renseignée -->
+      <!-- {{ $json.societe ? '<tr><td class="lbl">Société</td><td class="val">' + $json.societe + '</td></tr>' : '' }} -->
+      <tr>
+        <td class="lbl">Service demandé</td>
+        <td class="val">{{ $json.service }}</td>
+      </tr>
+      <tr>
+        <td class="lbl">Surface estimée</td>
+        <td class="val">{{ $json.surface }} m²</td>
+      </tr>
+      <tr>
+        <td class="lbl">Fréquence souhaitée</td>
+        <td class="val">{{ $json.frequence }}</td>
+      </tr>
+      <tr>
+        <td class="lbl">Adresse du chantier</td>
+        <td class="val">{{ $json.adresse || '—' }}</td>
+      </tr>
+      <!-- Services supplémentaires si renseignés -->
+      <!-- {{ $json.services_supplementaires ? '<tr><td class="lbl">Options</td><td class="val">' + $json.services_supplementaires + '</td></tr>' : '' }} -->
+      <tr>
+        <td class="lbl">Votre message</td>
+        <td class="val">{{ $json.message || 'Aucun message complémentaire.' }}</td>
+      </tr>
+    </table>
+
+    <!-- Estimation indicative (si disponible) -->
+    <!-- Décommenter si vous souhaitez afficher l'estimation au client -->
+    <!--
+    <p class="recap-title" style="margin-top:0;">Estimation indicative</p>
+    <div class="estimation-wrap">
+      <span class="estimation-badge">{{ $json.estimation_total }} €</span>
+      <span class="estimation-note">
+        * Estimation automatique non contractuelle.<br>
+        Le devis définitif vous sera communiqué après analyse complète de votre projet.
+      </span>
+    </div>
+    -->
+
+    <!-- Bloc rassurant -->
+    <div class="reassurance">
+      <p>
+        <strong>Votre satisfaction est notre priorité.</strong><br>
+        Chez Morais Cleaning, chaque devis est étudié individuellement. Vous bénéficierez
+        d'une proposition claire, sans frais cachés, adaptée à vos besoins réels —
+        qu'il s'agisse d'un service ponctuel ou d'un contrat régulier.
+      </p>
+    </div>
+
+    <!-- Contacts -->
+    <div class="contact-strip">
+      <p>Une question en attendant notre réponse ? Contactez-nous directement :</p>
+      <p>
+        📞 <a href="tel:+32478951269">0478 95 12 69</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        ✉️ <a href="mailto:info-devis@morais-cleaning.com">info-devis@morais-cleaning.com</a>
+      </p>
+      <p style="font-size:13px;color:#888;margin-top:6px !important;">
+        Disponible du lundi au vendredi, 8h – 18h · Samedi, 9h – 13h
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-wrap">
+      <a class="cta-btn" href="https://moraiscleaning.be">
+        Découvrir nos services
+      </a>
+    </div>
+
+    <hr class="divider">
+
+    <!-- Signature -->
+    <p class="signature">
+      Avec nos cordiales salutations,<br><br>
+      <strong>L'équipe commerciale</strong><br>
+      <span class="sig-logo">Morais <span>Cleaning</span></span>
+      <span style="display:block;font-size:13px;color:#8a9ab0;margin-top:4px;">
+        Nettoyage professionnel — Bruxelles, Belgique
+      </span>
+    </p>
+
+  </div><!-- /.email-body -->
+
+  <!-- ══ PIED DE PAGE ══ -->
+  <div class="email-footer">
+    <p class="footer-text">
+      Morais Cleaning ·
+      <a href="https://moraiscleaning.be">moraiscleaning.be</a> ·
+      <a href="tel:+32478951269">0478 95 12 69</a><br>
+      <a href="mailto:info@morais-cleaning.com">info@morais-cleaning.com</a> ·
+      Bruxelles, Belgique<br><br>
+      Cet email a été généré automatiquement suite à votre demande de devis sur notre site.
+      Si vous pensez l'avoir reçu par erreur, veuillez ignorer ce message.
+    </p>
+  </div>
+
+</div><!-- /.email-card -->
+</div><!-- /.email-wrapper -->
+</body>
+</html>

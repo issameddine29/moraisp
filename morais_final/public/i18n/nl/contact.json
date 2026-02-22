@@ -1,0 +1,82 @@
+{
+  "contact": {
+    "meta_title": "Contact Vertegenwoordigers - Morais Cleaning",
+    "meta_description": "Neem contact op met de commerciële vertegenwoordigers van Morais Cleaning in Brussel. Vind de juiste specialist voor jouw regio en professionele schoonmaakbehoeften.",
+    "header": {
+      "title": "Contacteer onze vertegenwoordigers",
+      "subtitle": "Vind en contacteer rechtstreeks de commerciële vertegenwoordiger voor jouw regio voor professionele schoonmaak"
+    },
+    "intro": {
+      "title": "Ons team van regionale vertegenwoordigers",
+      "text": "Onze vertegenwoordigers zijn gespecialiseerd in verschillende schoonmaaksectoren en dekken alle regio’s. Kies een vertegenwoordiger op basis van sector of regio voor persoonlijk advies."
+    },
+    "filters": {
+      "title": "Vind jouw vertegenwoordiger",
+      "region_label": "Filter op regio:",
+      "sector_label": "Filter op specialiteit:",
+      "search_label": "Zoek op naam:",
+      "search_placeholder": "Naam van vertegenwoordiger...",
+      "region_all": "Alle regio’s",
+      "region_idf": "Île-de-France",
+      "region_nord": "Noord",
+      "region_est": "Oost",
+      "region_ouest": "West",
+      "region_sud_est": "Zuidoost",
+      "region_sud_ouest": "Zuidwest",
+      "sector_all": "Alle sectoren",
+      "sector_bureaux": "Kantoren & winkels",
+      "sector_industriel": "Industrie & magazijnen",
+      "sector_medical": "Medisch & zorg",
+      "sector_residential": "Residentieel & mede-eigendom",
+      "sector_special": "Gespecialiseerd (einde huur, na werken)"
+    },
+    "reps": {
+      "title": "Onze commerciële vertegenwoordigers",
+      "no_results_title": "Geen vertegenwoordiger gevonden",
+      "no_results_text": "Geen vertegenwoordiger komt overeen met je zoekcriteria. Probeer andere filters.",
+      "labels": {
+        "location": "Locatie",
+        "phone": "Telefoon",
+        "mobile": "Mobiel",
+        "email": "E-mail",
+        "specialties": "Specialiteiten"
+      },
+      "contact_btn_prefix": "Contacteer"
+    },
+    "info": {
+      "central_title": "Centrale commerciële dienst",
+      "central_phone": "01 23 45 67 89",
+      "central_email": "commercial@proprenet.com",
+      "hours_title": "Openingsuren",
+      "hours_week": "Ma–Vr: 8u–19u",
+      "hours_sat": "Zaterdag: 9u–13u",
+      "hq_title": "Hoofdkantoor",
+      "hq_line1": "123 Avenue des Champs-Élysées",
+      "hq_line2": "75008 Parijs, Frankrijk",
+      "appointment_title": "Afspraak aanvragen",
+      "appointment_line1": "Online afspraak maken",
+      "appointment_line2": "met ons sales team"
+    },
+    "modal": {
+      "title_default": "Contact",
+      "close_aria": "Sluiten",
+      "form": {
+        "name_label": "Jouw naam *",
+        "email_label": "Jouw e-mail *",
+        "phone_label": "Jouw telefoon *",
+        "company_label": "Jouw bedrijf",
+        "subject_label": "Onderwerp *",
+        "subject_placeholder": "Kies een onderwerp",
+        "subject_devis": "Offerteaanvraag",
+        "subject_rdv": "Afspraak maken",
+        "subject_info": "Informatieaanvraag",
+        "subject_contrat": "Contractbespreking",
+        "subject_autre": "Andere",
+        "message_label": "Jouw bericht *",
+        "send_btn": "Bericht verzenden",
+        "success": "Bericht verzonden!",
+        "error": "Er is een fout opgetreden. Probeer opnieuw."
+      }
+    }
+  }
+}

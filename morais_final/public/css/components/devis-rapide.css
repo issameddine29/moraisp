@@ -1,0 +1,498 @@
+/* ============================================ */
+/* COMPOSANT DEVIS RAPIDE                       */
+/* CSS pour le formulaire de devis rapide       */
+/* ============================================ */
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatAnimation {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(185, 28, 28, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(185, 28, 28, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(185, 28, 28, 0);
+    }
+}
+
+.devis-rapide-section {
+    padding: 25px 0;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--gray-400) 50%, var(--gray-300) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.devis-rapide-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: floatAnimation 6s ease-in-out infinite;
+}
+
+.devis-rapide-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: floatAnimation 8s ease-in-out infinite;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.devis-rapide-header {
+    text-align: center;
+    margin-bottom: 25px;
+    animation: slideInUp 0.8s ease-out;
+}
+
+.devis-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--mc-red-light) 100%);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    box-shadow: 0 6px 20px rgba(185, 28, 28, 0.3);
+    animation: pulseGlow 2s infinite;
+    transition: transform 0.3s ease;
+}
+
+.devis-badge:hover {
+    transform: scale(1.05);
+}
+
+.devis-badge span {
+    color: #FFD700;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.devis-badge i {
+    color: #FFD700;
+    font-size: 1.1rem;
+    animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.devis-title {
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+    line-height: 1.1;
+}
+
+.devis-subtitle {
+    font-size: 0.9rem;
+    color: var(--gray-100);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* Form */
+.devis-rapide-form {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    max-width: 850px;
+    margin: 0 auto;
+    animation: slideInUp 1s ease-out;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    position: relative;
+    z-index: 2;
+}
+
+.devis-rapide-form::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+    border-radius: 2px;
+}
+
+.form-group {
+    margin-bottom: 28px;
+    animation: slideInUp 0.8s ease-out;
+}
+
+.form-group:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.form-group:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.form-group:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.form-group:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.form-group:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.form-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.form-label:hover {
+    color: var(--secondary);
+}
+
+.form-label i {
+    color: var(--secondary);
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+    background: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(185, 28, 28, 0.15);
+}
+
+.form-label:hover i {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.required {
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+.form-control {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid var(--gray-200);
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background: #fafbfc;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--secondary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-control::placeholder {
+    color: var(--gray-400);
+}
+
+.form-control:hover:not(:focus) {
+    border-color: #dee2e6;
+    background: var(--gray-100);
+}
+
+select.form-control {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23DC3545' d='M10.293 3.293L6 7.586 1.707 3.293A1 1 0 00.293 4.707l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    background-size: 12px;
+    padding-right: 45px;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Actions */
+.form-actions {
+    margin-top: 40px;
+    text-align: center;
+    animation: slideInUp 1.2s ease-out;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 50px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-family: inherit;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--mc-red-light) 100%);
+    color: white;
+    box-shadow: 0 10px 35px rgba(185, 28, 28, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 50px rgba(185, 28, 28, 0.5);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+}
+
+.btn-large {
+    padding: 20px 60px;
+    font-size: 1.2rem;
+}
+
+.form-note {
+    margin-top: 25px;
+    font-size: 0.95rem;
+    color: #5a6c7d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    animation: slideInUp 1.4s ease-out;
+}
+
+.form-note i {
+    color: #28a745;
+    font-size: 1.1rem;
+}
+
+/* Success/Error Messages */
+.form-success,
+.form-error {
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    animation: slideInUp 0.6s ease-out;
+}
+
+.form-success {
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    border: 2px solid #28a745;
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.2);
+}
+
+.form-success i {
+    font-size: 3rem;
+    color: #28a745;
+    margin-bottom: 15px;
+}
+
+.form-success h3 {
+    color: #155724;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.form-success p {
+    color: #155724;
+    font-size: 1.05rem;
+}
+
+.form-error {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    border: 2px solid var(--secondary);
+}
+
+.form-error i {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 15px;
+}
+
+.form-error h3 {
+    color: #721c24;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.form-error p {
+    color: #721c24;
+    font-size: 1.05rem;
+}
+
+/* Trust Badges */
+.devis-trust-badges {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 2px solid var(--gray-200);
+}
+
+.trust-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.trust-badge i {
+    font-size: 2rem;
+    color: var(--mc-red-primary, var(--secondary));
+    background: linear-gradient(135deg, rgba(185, 28, 28, 0.1), rgba(185, 28, 28, 0.05));
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.trust-badge span {
+    font-weight: 600;
+    color: var(--gray-800);
+    font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .devis-rapide-section {
+        padding: 50px 0;
+    }
+
+    .devis-title {
+        font-size: 1.8rem;
+    }
+
+    .devis-subtitle {
+        font-size: 1rem;
+    }
+
+    .devis-rapide-form {
+        padding: 30px 20px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .btn-large {
+        width: 100%;
+        padding: 16px 30px;
+        font-size: 1rem;
+    }
+
+    .devis-trust-badges {
+        gap: 20px;
+    }
+
+    .trust-badge {
+        flex: 0 0 calc(50% - 10px);
+    }
+}
+
+@media (max-width: 480px) {
+    .devis-title {
+        font-size: 1.5rem;
+    }
+
+    .devis-badge {
+        font-size: 0.75rem;
+        padding: 6px 16px;
+    }
+
+    .trust-badge {
+        flex: 0 0 100%;
+    }
+}

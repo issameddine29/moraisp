@@ -1,0 +1,14 @@
+@media (max-width: 768px) {
+  .contact-section > div > div:first-child > div:nth-child(3) {
+    grid-template-columns: 1fr !important;
+  }
+  .contact-section > div > div:nth-child(2) {
+    padding: 30px 20px !important;
+  }
+  .contact-section > div > div:nth-child(2) > form > div {
+    grid-template-columns: 1fr !important;
+  }
+  .contact-section > div > div:nth-child(3) {
+    grid-template-columns: 1fr !important;
+  }
+}

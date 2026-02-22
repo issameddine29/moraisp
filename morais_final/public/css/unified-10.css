@@ -1,0 +1,91 @@
+/* unified-10.css — overrides to enforce consistent spacing, typography, and CTA behavior across all pages.
+   Goal: make every page feel like the same product. */
+
+:root{
+  --mc-maxw: 1180px;
+  --mc-pad-x: 20px;
+  --mc-pad-y: 72px;
+  --mc-hero-pad-y: 84px;
+  --mc-radius: 18px;
+  --mc-shadow: 0 14px 40px rgba(0,0,0,.18);
+}
+
+/* Layout consistency */
+body{
+  overflow-x: hidden;
+}
+
+main, .main, .page, .page-content{
+  display:block;
+}
+
+.page-container, .container, .mc-container{
+  width: min(var(--mc-maxw), calc(100% - (var(--mc-pad-x) * 2)));
+  margin-inline: auto;
+}
+
+section{
+  padding-block: var(--mc-pad-y);
+}
+section:first-of-type{
+  padding-top: var(--mc-hero-pad-y);
+}
+
+/* Normalize headings spacing */
+h1, h2, h3{
+  scroll-margin-top: 110px;
+}
+h1{ line-height: 1.08; }
+h2{ line-height: 1.15; margin-top: 0; }
+p{ line-height: 1.65; }
+
+/* Cards / blocks */
+.mc-card, .card, .service-card, .pricing-card, .faq-card{
+  border-radius: var(--mc-radius);
+}
+
+/* Hero / CTA: keep one primary CTA visually dominant */
+.hero, .mc-hero, .hero-section, .services-hero{
+  padding-block: var(--mc-hero-pad-y);
+}
+
+.hero .btn, .hero a.btn,
+.mc-hero .btn, .mc-hero a.btn,
+.hero-cta .btn, .hero-cta a.btn{
+  margin: 0;
+}
+
+.cta, .cta-row, .cta-buttons, .btn-group{
+  display:flex;
+  flex-wrap:wrap;
+  gap: 12px;
+  align-items:center;
+}
+
+a.mc-link, .mc-link{
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Secondary CTA should look clearly secondary */
+.mc-btn-secondary, .btn-secondary, a.btn-secondary{
+  opacity: .92;
+}
+
+/* Reduce duplicated CTA visual noise: if multiple primary buttons exist, make all but the first look like links */
+.mc-primary-downgraded{
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  text-decoration: underline !important;
+  text-underline-offset: 4px !important;
+}
+
+/* Forms: consistent spacing */
+form{
+  margin-top: 18px;
+}
+input, select, textarea{
+  border-radius: 12px;
+}

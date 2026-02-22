@@ -1,0 +1,210 @@
+<!-- ============================================
+NAVBAR BLEUE PREMIUM (STYLE ORIGINAL)
+Menu mobile centré avec icônes sociales
+============================================ -->
+<nav class="mc-navbar mc-navbar-blue" id="mc-navbar">
+  <div class="mc-navbar-container">
+    <!-- Logo -->
+    <a href="/index.html" class="mc-navbar-logo">
+      <i class="fas fa-sparkles mc-logo-icon"></i>
+      <span class="mc-logo-text"><span class="mc-logo-morais">Morais</span> <span
+          class="mc-logo-cleaning">Cleaning</span></span>
+    </a>
+
+    <!-- Burger (Mobile) -->
+    <button class="mc-burger-btn" id="mc-burger-btn" aria-label="Menu" data-i18n-aria-label="nav.menu"
+      aria-expanded="false" aria-controls="mc-navbar-menu">
+      <span class="mc-burger-line"></span>
+      <span class="mc-burger-line"></span>
+      <span class="mc-burger-line"></span>
+    </button>
+
+    <!-- Menu -->
+    <div class="mc-navbar-menu" id="mc-navbar-menu">
+      <!-- Links -->
+      <ul class="mc-navbar-links">
+        <li><a href="/index.html" class="mc-navbar-link" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="index.html#apropos" class="mc-navbar-link" data-i18n="nav.about">À propos</a></li>
+
+        <!-- Services Dropdown -->
+        <li class="mc-navbar-item mc-has-dropdown" id="mc-services-item">
+          <button class="mc-navbar-link mc-dropdown-trigger" type="button" aria-expanded="false">
+            <span data-i18n="nav.services">Services</span>
+            <i class="fas fa-chevron-down mc-dropdown-icon" aria-hidden="true"></i>
+          </button>
+
+          <!-- Mini-navbar (mobile uniquement) -->
+          <ul class="mc-mobile-submenu" aria-label="Services">
+            <li><a href="/public/html/nettoyage-bureaux.html"
+                data-i18n="nav.services.professional.office.title">Bureaux</a></li>
+            <li><a href="/public/html/locaux-commerciaux.html"
+                data-i18n="nav.services.professional.commercial.title">Commerciaux</a></li>
+            <li><a href="/public/html/industriel.html"
+                data-i18n="nav.services.professional.industrial.title">Industriel</a></li>
+            <li><a href="/public/html/cabinets-medicaux.html"
+                data-i18n="nav.services.professional.medical.title">Médicaux</a></li>
+            <li><a href="/public/html/maison-appartement.html"
+                data-i18n="nav.services.residential.home.title">Maison</a></li>
+            <li><a href="/public/html/copropriete.html" data-i18n="nav.services.residential.copro.title">Copropriété</a>
+            </li>
+            <li><a href="/public/html/fin-de-bail.html" data-i18n="nav.services.residential.endlease.title">Fin de
+                bail</a></li>
+            <li><a href="/public/html/conciergerie.html"
+                data-i18n="nav.services.residential.concierge.title">Conciergerie</a></li>
+            <li><a href="/public/html/nettoyage-vitres.html"
+                data-i18n="nav.services.specialized.windows.title">Vitres</a></li>
+            <li><a href="/public/html/apres-travaux.html"
+                data-i18n="nav.services.specialized.postconstruction.title">Après travaux</a></li>
+            <li><a href="/public/html/tapis-moquettes.html" data-i18n="nav.services.specialized.carpets.title">Tapis</a>
+            </li>
+            <li><a href="/public/html/canapes-fauteuils.html"
+                data-i18n="nav.services.specialized.sofas.title">Canapés</a></li>
+            <li><a href="/public/html/parkings-garages.html"
+                data-i18n="nav.services.specialized.parking.title">Parkings</a></li>
+          </ul>
+
+          <!-- Dropdown desktop (3 colonnes) -->
+          <div class="mc-dropdown-menu" role="menu" aria-label="Services">
+            <div class="mc-dropdown-content">
+              <!-- Professionnel -->
+              <div class="mc-dropdown-section">
+                <div class="mc-dropdown-title" data-i18n="nav.services.professional.title">Professionnel</div>
+                <a href="/public/html/nettoyage-bureaux.html" class="mc-dropdown-item" role="menuitem">
+                  <i class="fas fa-building" aria-hidden="true"></i>
+                  <span data-i18n="nav.services.professional.office.title">Bureaux</span>
+                </a>
+                <a href="/public/html/locaux-commerciaux.html" class="mc-dropdown-item" role="menuitem">
+                  <i class="fas fa-store" aria-hidden="true"></i>
+                  <span data-i18n="nav.services.professional.commercial.title">Commerciaux</span>
+                </a>
+                <a href="/public/html/industriel.html" class="mc-dropdown-item" role="menuitem">
+                  <i class="fas fa-industry" aria-hidden="true"></i>
+                  <span data-i18n="nav.services.professional.industrial.title">Industriel</span>
+                </a>
+                <a href="/public/html/cabinets-medicaux.html" class="mc-dropdown-item" role="menuitem">
+                  <i class="fas fa-briefcase-medical" aria-hidden="true"></i>
+                  <span data-i18n="nav.services.professional.medical.title">Médicaux</span>
+                </a>
+              </div>
+
+              <!-- Résidentiel -->
+              <div class="mc-dropdown-section">
+                <div class="mc-dropdown-title" data-i18n="nav.services.residential.title">Résidentiel</div>
+                <a href="/public/html/maison-appartement.html" class="mc-dropdown-item" role="menuitem">
+                  <i class="fas fa-home" aria-hidden="true"></i>
+                  <span data-i18n="nav.services.residential.home.title">Maison</span>
+                </a>
+                <a href="/public/html/copropriete.html" class="mc-dropdown-item" role="menuitem">
+                  <i class="fas fa-building" aria-hidden="true"></i>
+                  <span data-i18n="nav.services.residential.copro.title">Copropriété</span>
+                </a>
+                <a href="/public/html/fin-de-bail.html" class="mc-dropdown-item" role="menuitem">
+                  <i class="fas fa-door-open" aria-hidden="true"></i>
+                  <span data-i18n="nav.services.residential.endlease.title">Fin de bail</span>
+                </a>
+                <a href="/public/html/conciergerie.html" class="mc-dropdown-item" role="menuitem">
+                  <i class="fas fa-concierge-bell" aria-hidden="true"></i>
+                  <span data-i18n="nav.services.residential.concierge.title">Conciergerie</span>
+                </a>
+              </div>
+
+              <!-- Spécialisé -->
+              <div class="mc-dropdown-section">
+                <div class="mc-dropdown-title" data-i18n="nav.services.specialized.title">Spécialisé</div>
+                <a href="/public/html/nettoyage-vitres.html" class="mc-dropdown-item" role="menuitem">
+                  <i class="fas fa-window-restore" aria-hidden="true"></i>
+                  <span data-i18n="nav.services.specialized.windows.title">Vitres</span>
+                </a>
+                <a href="/public/html/apres-travaux.html" class="mc-dropdown-item" role="menuitem">
+                  <i class="fas fa-hard-hat" aria-hidden="true"></i>
+                  <span data-i18n="nav.services.specialized.postconstruction.title">Après travaux</span>
+                </a>
+                <a href="/public/html/tapis-moquettes.html" class="mc-dropdown-item" role="menuitem">
+                  <i class="fas fa-th" aria-hidden="true"></i>
+                  <span data-i18n="nav.services.specialized.carpets.title">Tapis</span>
+                </a>
+                <a href="/public/html/canapes-fauteuils.html" class="mc-dropdown-item" role="menuitem">
+                  <i class="fas fa-couch" aria-hidden="true"></i>
+                  <span data-i18n="nav.services.specialized.sofas.title">Canapés</span>
+                </a>
+                <a href="/public/html/parkings-garages.html" class="mc-dropdown-item" role="menuitem">
+                  <i class="fas fa-parking" aria-hidden="true"></i>
+                  <span data-i18n="nav.services.specialized.parking.title">Parkings</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li><a href="/index.html#realisations" class="mc-navbar-link" data-i18n="nav.achievements">Réalisations</a></li>
+        <li><a href="/public/pages/recrutement.html" class="mc-navbar-link" data-i18n="nav.recruitment">Recrutement</a>
+        </li>
+      </ul>
+
+      <!-- Actions -->
+      <div class="mc-navbar-actions">
+        <!-- Icônes sociales (mobile uniquement) -->
+        <div class="mc-social-icons">
+          <!-- WhatsApp -->
+          <a href="https://wa.me/32478951269?text=Bonjour,%20je%20souhaite%20un%20devis%20pour%20un%20service%20de%20nettoyage."
+            class="mc-wa-icon" data-i18n-title="nav.whatsapp" target="_blank" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+
+
+          <!-- Facebook (optionnel - à remplacer par votre lien) -->
+          <a href="#" class="mc-social-icon mc-facebook-icon" target="_blank" title="Facebook"
+            style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: #1877F2; color: white; border-radius: 50%; font-size: 1.5rem; transition: all 0.3s;">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+
+          <!-- LinkedIn (optionnel - à remplacer par votre lien) -->
+          <a href="#" class="mc-social-icon mc-linkedin-icon" target="_blank" title="LinkedIn"
+            style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; background: #0A66C2; color: white; border-radius: 50%; font-size: 1.5rem; transition: all 0.3s;">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+
+        <!-- Language -->
+        <div class="mc-lang-dropdown">
+          <button class="mc-lang-trigger" type="button">
+            <i class="fas fa-globe"></i>
+            <span class="mc-lang-current">FR</span>
+            <i class="fas fa-chevron-down mc-lang-arrow"></i>
+          </button>
+          <div class="mc-lang-menu">
+            <button data-lang="fr" data-lang-switch="fr" class="active">🇫🇷 Français</button>
+            <button data-lang="en" data-lang-switch="en">🇬🇧 English</button>
+            <button data-lang="nl" data-lang-switch="nl">🇳🇱 Nederlands</button>
+          </div>
+        </div>
+
+        <!-- CTA Devis -->
+        <a href="/public/pages/devis.html" class="mc-btn-devis">
+          <i class="fas fa-file-invoice"></i>
+          <span data-i18n="cta.quote">Demander un devis</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Overlay Mobile -->
+<div class="mc-navbar-overlay" id="mc-navbar-overlay"></div>
+
+<style>
+  /* Masquer les icônes sociales en desktop, afficher seulement en mobile */
+  @media (min-width: 993px) {
+    .mc-social-icons {
+      display: none !important;
+    }
+  }
+
+  /* Hover effet pour les icônes sociales */
+  @media (max-width: 992px) {
+    .mc-social-icon:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+  }
+</style>

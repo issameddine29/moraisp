@@ -1,0 +1,388 @@
+   body {
+       background-color: var(--gray-100);
+       color: #333;
+       line-height: 1.6;
+   }
+
+
+   header {
+       background: linear-gradient(135deg, var(--primary), var(--accent));
+       color: white;
+       padding: 6rem 0;
+       text-align: center;
+       box-shadow: var(--shadow-md);
+   }
+
+   .logo {
+       font-size: 2.8rem;
+       margin-bottom: 0.5rem;
+   }
+
+   header h1 {
+       font-size: 2.2rem;
+       margin-bottom: 0.5rem;
+   }
+
+   header p {
+       font-size: 1.1rem;
+       opacity: 0.9;
+       max-width: 600px;
+       margin: 0 auto;
+   }
+
+   .page-intro {
+       background-color: white;
+       padding: 1rem;
+       margin: 2rem 0;
+       border-radius: 10px;
+       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+       text-align: center;
+       border-left: 5px solid var(--primary);
+   }
+
+   .page-intro h2 {
+       color: var(--primary);
+       margin-bottom: 1rem;
+   }
+
+   .filter-section {
+       background-color: white;
+       padding: 1.5rem;
+       margin: 1.5rem 0;
+       border-radius: 10px;
+       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+   }
+
+   .filter-title {
+       color: var(--primary);
+       margin-bottom: 1rem;
+       font-size: 1.3rem;
+   }
+
+   .filters {
+       display: flex;
+       flex-wrap: wrap;
+       gap: 1rem;
+       align-items: center;
+   }
+
+   .filter-group {
+       display: flex;
+       flex-direction: column;
+       min-width: 200px;
+   }
+
+   .filter-group label {
+       font-weight: 600;
+       margin-bottom: 0.5rem;
+       color: var(--gray-600);
+   }
+
+   select,
+   input {
+       padding: 0.75rem;
+       border: 1px solid var(--gray-300);
+       border-radius: 5px;
+       font-size: 1rem;
+       transition: border-color 0.3s;
+   }
+
+   select:focus,
+   input:focus {
+       outline: none;
+       border-color: var(--primary);
+       box-shadow: 0 0 0 3px rgba(10, 126, 126, 0.1);
+   }
+
+   .representatives-section {
+       margin: 2rem 0;
+   }
+
+   .section-title {
+       color: var(--primary);
+       margin-bottom: 1.5rem;
+       padding-bottom: 0.5rem;
+       border-bottom: 3px solid var(--gray-200);
+       font-size: 1.8rem;
+   }
+
+   .representative-grid {
+       display: grid;
+       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+       gap: 1.5rem;
+   }
+
+   .representative-card {
+       background-color: white;
+       border-radius: 10px;
+       overflow: hidden;
+       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+       transition: transform 0.3s, box-shadow 0.3s;
+       border-top: 5px solid var(--primary);
+   }
+
+   .representative-card:hover {
+       transform: translateY(-5px);
+       box-shadow: 0 8px 25px rgba(10, 126, 126, 0.2);
+   }
+
+   .rep-header {
+       padding: 1.2rem;
+       text-align: center;
+       position: relative;
+   }
+
+   .rep-badge {
+       position: absolute;
+       top: 1rem;
+       right: 1rem;
+       background-color: var(--primary);
+       color: white;
+       padding: 0.25rem 0.75rem;
+       border-radius: 20px;
+       font-size: 0.8rem;
+       font-weight: 600;
+   }
+
+   .rep-avatar {
+       width: 100px;
+       height: 100px;
+       border-radius: 50%;
+       margin: 0 auto 0.8rem;
+       overflow: hidden;
+       background-color: var(--gray-100);
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       font-size: 3rem;
+       color: var(--primary);
+       border: 3px solid var(--primary);
+   }
+
+   .rep-name {
+       font-size: 1.3rem;
+       font-weight: 700;
+       margin-bottom: 0.2rem;
+       color: var(--primary);
+   }
+
+   .rep-role {
+       font-size: 1rem;
+       color: #666;
+       margin-bottom: 0.5rem;
+   }
+
+   .rep-region {
+       font-size: 1rem;
+       font-weight: 600;
+       color: var(--primary);
+       background-color: var(--gray-100);
+       padding: 0.25rem 1rem;
+       border-radius: 20px;
+       display: inline-block;
+   }
+
+   .rep-info {
+       padding: 1.2rem;
+       background-color: var(--gray-100);
+   }
+
+   .rep-detail {
+       display: flex;
+       align-items: center;
+       margin-bottom: 1rem;
+       padding-bottom: 1rem;
+       border-bottom: 1px solid var(--gray-200);
+   }
+
+   .rep-detail:last-child {
+       border-bottom: none;
+       margin-bottom: 0;
+       padding-bottom: 0;
+   }
+
+   .rep-detail i {
+       width: 30px;
+       color: var(--primary);
+       font-size: 1.2rem;
+   }
+
+   .rep-detail span {
+       flex: 1;
+   }
+
+   .contact-btn {
+       display: block;
+       width: 100%;
+       background: linear-gradient(to right, var(--primary), var(--accent));
+       color: white;
+       border: none;
+       padding: 0.8rem;
+       border-radius: 5px;
+       font-size: 1rem;
+       font-weight: 600;
+       cursor: pointer;
+       transition: background 0.3s, transform 0.3s;
+       margin-top: 1rem;
+       text-align: center;
+       text-decoration: none;
+   }
+
+   .contact-btn:hover {
+       background: linear-gradient(to right, var(--accent), var(--primary));
+       transform: translateY(-2px);
+   }
+
+   .contact-modal {
+       display: none;
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       background-color: rgba(0, 0, 0, 0.5);
+       z-index: 1000;
+       justify-content: center;
+       align-items: center;
+   }
+
+   .modal-content {
+       background-color: white;
+       padding: 2rem;
+       border-radius: 10px;
+       width: 90%;
+       max-width: 500px;
+       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+   }
+
+   .modal-header {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       margin-bottom: 1.5rem;
+   }
+
+   .modal-title {
+       color: var(--primary);
+       font-size: 1.5rem;
+       font-weight: 600;
+   }
+
+   .close-modal {
+       background: none;
+       border: none;
+       font-size: 1.5rem;
+       color: #666;
+       cursor: pointer;
+   }
+
+   .form-group {
+       margin-bottom: 1.5rem;
+   }
+
+   .form-group label {
+       display: block;
+       margin-bottom: 0.5rem;
+       font-weight: 600;
+       color: var(--gray-600);
+   }
+
+   .form-group input,
+   .form-group textarea,
+   .form-group select {
+       width: 100%;
+       padding: 0.75rem;
+       border: 1px solid var(--gray-300);
+       border-radius: 5px;
+       font-size: 1rem;
+   }
+
+   .modal-btn {
+       background: linear-gradient(to right, var(--primary), var(--accent));
+       color: white;
+       border: none;
+       padding: 0.8rem 1.5rem;
+       border-radius: 5px;
+       font-size: 1rem;
+       font-weight: 600;
+       cursor: pointer;
+       width: 100%;
+       margin-top: 1rem;
+   }
+
+   .contact-info {
+       display: flex;
+       flex-wrap: wrap;
+       gap: 2rem;
+       margin-top: 3rem;
+       padding: 2rem;
+       background-color: white;
+       border-radius: 10px;
+       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+   }
+
+   .info-item {
+       flex: 1;
+       min-width: 250px;
+       display: flex;
+       align-items: flex-start;
+       gap: 1rem;
+   }
+
+   .info-icon {
+       width: 50px;
+       height: 50px;
+       background: linear-gradient(135deg, var(--primary), var(--accent));
+       border-radius: 50%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       color: white;
+       font-size: 1.2rem;
+       flex-shrink: 0;
+   }
+
+   .info-content h3 {
+       color: var(--primary);
+       margin-bottom: 0.5rem;
+   }
+
+   footer {
+       background-color: #1a1a2e;
+       color: var(--gray-200);
+       text-align: center;
+       padding: 2rem 0;
+       margin-top: 3rem;
+   }
+
+   .no-results {
+       grid-column: 1 / -1;
+       text-align: center;
+       padding: 3rem;
+       background-color: white;
+       border-radius: 10px;
+       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+   }
+
+   @media (max-width: 768px) {
+       .representative-grid {
+           grid-template-columns: 1fr;
+       }
+
+       .filters {
+           flex-direction: column;
+           align-items: stretch;
+       }
+
+       .filter-group {
+           min-width: 100%;
+       }
+
+       header h1 {
+           font-size: 1.8rem;
+       }
+
+       .logo {
+           font-size: 2.2rem;
+       }
+   }

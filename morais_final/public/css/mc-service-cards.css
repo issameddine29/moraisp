@@ -1,0 +1,441 @@
+/**
+ * ============================================================================
+ * MORAIS CLEANING - CARTES SERVICES
+ * ============================================================================
+ * 
+ * RÈGLES:
+ * - Bordure bleue = service standard/régulier
+ * - Bordure rouge = service urgent/express UNIQUEMENT
+ * - 1 CTA rouge max par carte
+ * - Icônes bleu pour services standards, rouge pour urgents
+ * ============================================================================
+ */
+
+/* ============================================================================
+   CARTE SERVICE STANDARD (BLEU)
+   ============================================================================ */
+
+.mc-service-card {
+  position: relative;
+  background: var(--mc-white);
+  border: 1px solid var(--mc-gray-200);
+  border-top: 4px solid var(--mc-blue-primary);
+  border-radius: var(--mc-radius-lg);
+  padding: var(--mc-space-xl);
+  
+  transition: all var(--mc-transition-base);
+  box-shadow: var(--mc-shadow-sm);
+}
+
+.mc-service-card:hover {
+  border-top-color: var(--mc-blue-dark);
+  box-shadow: var(--mc-shadow-blue);
+  transform: translateY(-4px);
+}
+
+/* En-tête de carte */
+.mc-service-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--mc-space-md);
+  margin-bottom: var(--mc-space-lg);
+}
+
+/* Icône service standard (bleu) */
+.mc-service-card-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  background: var(--mc-bg-blue-light);
+  color: var(--mc-blue-primary);
+  font-size: 2rem;
+  
+  border-radius: var(--mc-radius-lg);
+  transition: all var(--mc-transition-base);
+}
+
+.mc-service-card:hover .mc-service-card-icon {
+  background: var(--mc-bg-blue-medium);
+  color: var(--mc-blue-dark);
+  transform: scale(1.05);
+}
+
+/* Titre */
+.mc-service-card-title {
+  margin: 0 0 var(--mc-space-xs) 0;
+  font-size: 1.5rem;
+  font-weight: var(--mc-font-bold);
+  color: var(--mc-blue-dark);
+  line-height: 1.3;
+}
+
+/* Sous-titre */
+.mc-service-card-subtitle {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--mc-gray-600);
+  font-weight: var(--mc-font-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Description */
+.mc-service-card-description {
+  margin: var(--mc-space-md) 0;
+  color: var(--mc-gray-800);
+  line-height: 1.6;
+}
+
+/* Liste de caractéristiques */
+.mc-service-card-features {
+  list-style: none;
+  padding: 0;
+  margin: var(--mc-space-lg) 0;
+}
+
+.mc-service-card-features li {
+  display: flex;
+  align-items: center;
+  gap: var(--mc-space-sm);
+  padding: var(--mc-space-xs) 0;
+  color: var(--mc-gray-800);
+}
+
+.mc-service-card-features li::before {
+  content: "✓";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  width: 24px;
+  height: 24px;
+  
+  background: var(--mc-bg-blue-light);
+  color: var(--mc-blue-primary);
+  font-weight: var(--mc-font-bold);
+  
+  border-radius: var(--mc-radius-full);
+  flex-shrink: 0;
+}
+
+/* Footer avec CTA */
+.mc-service-card-footer {
+  margin-top: var(--mc-space-xl);
+  padding-top: var(--mc-space-lg);
+  border-top: 1px solid var(--mc-gray-200);
+  
+  display: flex;
+  gap: var(--mc-space-sm);
+  flex-wrap: wrap;
+}
+
+/* ============================================================================
+   CARTE SERVICE URGENT/EXPRESS (ROUGE)
+   ============================================================================ */
+
+.mc-service-card-urgent {
+  border: 2px solid var(--mc-red-primary);
+  border-top: 4px solid var(--mc-red-primary);
+}
+
+.mc-service-card-urgent:hover {
+  border-color: var(--mc-red-dark);
+  border-top-color: var(--mc-red-dark);
+  box-shadow: var(--mc-shadow-red);
+}
+
+/* Badge urgent en haut à droite */
+.mc-service-card-urgent::before {
+  content: "URGENT";
+  position: absolute;
+  top: -12px;
+  right: 24px;
+  
+  background: var(--mc-red-primary);
+  color: var(--mc-white);
+  
+  font-size: 0.75rem;
+  font-weight: var(--mc-font-bold);
+  letter-spacing: 1px;
+  
+  padding: 6px 16px;
+  border-radius: var(--mc-radius-full);
+  box-shadow: var(--mc-shadow-md);
+}
+
+/* Icône rouge pour services urgents */
+.mc-service-card-urgent .mc-service-card-icon {
+  background: var(--mc-bg-red-light);
+  color: var(--mc-red-primary);
+}
+
+.mc-service-card-urgent:hover .mc-service-card-icon {
+  background: rgba(185, 28, 28, 0.15);
+  color: var(--mc-red-dark);
+}
+
+/* Titre rouge pour services urgents */
+.mc-service-card-urgent .mc-service-card-title {
+  color: var(--mc-red-dark);
+}
+
+/* Features avec checkmarks rouges */
+.mc-service-card-urgent .mc-service-card-features li::before {
+  background: var(--mc-bg-red-light);
+  color: var(--mc-red-primary);
+}
+
+/* ============================================================================
+   CARTE COMPACTE (POUR GRILLES)
+   ============================================================================ */
+
+.mc-service-card-compact {
+  padding: var(--mc-space-lg);
+}
+
+.mc-service-card-compact .mc-service-card-icon {
+  width: 48px;
+  height: 48px;
+  font-size: 1.5rem;
+}
+
+.mc-service-card-compact .mc-service-card-title {
+  font-size: 1.25rem;
+}
+
+/* ============================================================================
+   CARTE AVEC IMAGE
+   ============================================================================ */
+
+.mc-service-card-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: var(--mc-radius-lg) var(--mc-radius-lg) 0 0;
+  margin: calc(var(--mc-space-xl) * -1);
+  margin-bottom: var(--mc-space-lg);
+}
+
+.mc-service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--mc-transition-slow);
+}
+
+.mc-service-card:hover .mc-service-card-image img {
+  transform: scale(1.05);
+}
+
+/* Overlay gradient sur image */
+.mc-service-card-image::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  pointer-events: none;
+}
+
+/* ============================================================================
+   BADGES & TAGS
+   ============================================================================ */
+
+.mc-service-card-badges {
+  display: flex;
+  gap: var(--mc-space-xs);
+  flex-wrap: wrap;
+  margin-bottom: var(--mc-space-md);
+}
+
+.mc-service-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: var(--mc-font-semibold);
+  
+  border-radius: var(--mc-radius-full);
+  
+  transition: all var(--mc-transition-fast);
+}
+
+/* Badge bleu (certifié, eco, etc.) */
+.mc-service-badge-blue {
+  background: var(--mc-bg-blue-medium);
+  color: var(--mc-blue-dark);
+}
+
+/* Badge rouge (24h, express, etc.) */
+.mc-service-badge-red {
+  background: var(--mc-bg-red-light);
+  color: var(--mc-red-dark);
+}
+
+/* Badge neutre */
+.mc-service-badge-gray {
+  background: var(--mc-gray-100);
+  color: var(--mc-gray-800);
+}
+
+/* ============================================================================
+   GRILLE DE CARTES
+   ============================================================================ */
+
+.mc-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--mc-space-xl);
+  margin: var(--mc-space-2xl) 0;
+}
+
+/* Grid 2 colonnes (pour desktop) */
+.mc-services-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Grid 3 colonnes (pour desktop) */
+.mc-services-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 1024px) {
+  .mc-services-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .mc-services-grid,
+  .mc-services-grid-2,
+  .mc-services-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .mc-service-card {
+    padding: var(--mc-space-lg);
+  }
+  
+  .mc-service-card-header {
+    flex-direction: column;
+  }
+  
+  .mc-service-card-footer {
+    flex-direction: column;
+  }
+  
+  .mc-service-card-footer .mc-btn {
+    width: 100%;
+  }
+}
+
+/* ============================================================================
+   EXEMPLES D'UTILISATION
+   ============================================================================ */
+
+/*
+<!-- CARTE SERVICE STANDARD -->
+<div class="mc-service-card">
+  <div class="mc-service-card-header">
+    <div class="mc-service-card-icon">
+      <i class="fas fa-building"></i>
+    </div>
+    <div>
+      <p class="mc-service-card-subtitle">Prestations régulières</p>
+      <h3 class="mc-service-card-title">Nettoyage de Bureaux</h3>
+    </div>
+  </div>
+  
+  <div class="mc-service-card-badges">
+    <span class="mc-service-badge mc-service-badge-blue">
+      <i class="fas fa-certificate"></i> Certifié
+    </span>
+    <span class="mc-service-badge mc-service-badge-blue">
+      <i class="fas fa-leaf"></i> Éco-responsable
+    </span>
+  </div>
+  
+  <p class="mc-service-card-description">
+    Nettoyage professionnel de vos espaces de travail avec des produits écologiques.
+    Intervention quotidienne, hebdomadaire ou mensuelle selon vos besoins.
+  </p>
+  
+  <ul class="mc-service-card-features">
+    <li>Équipe formée et expérimentée</li>
+    <li>Matériel professionnel fourni</li>
+    <li>Horaires flexibles (jour/nuit)</li>
+    <li>Devis gratuit sous 24h</li>
+  </ul>
+  
+  <div class="mc-service-card-footer">
+    <button class="mc-btn mc-btn-primary">
+      <i class="fas fa-phone"></i>
+      Demander un devis
+    </button>
+    <button class="mc-btn mc-btn-secondary">
+      <i class="fas fa-info-circle"></i>
+      En savoir plus
+    </button>
+  </div>
+</div>
+
+<!-- CARTE SERVICE URGENT -->
+<div class="mc-service-card mc-service-card-urgent">
+  <div class="mc-service-card-header">
+    <div class="mc-service-card-icon">
+      <i class="fas fa-bolt"></i>
+    </div>
+    <div>
+      <p class="mc-service-card-subtitle">Intervention rapide</p>
+      <h3 class="mc-service-card-title">Service Express 24h</h3>
+    </div>
+  </div>
+  
+  <div class="mc-service-card-badges">
+    <span class="mc-service-badge mc-service-badge-red">
+      <i class="fas fa-clock"></i> 24h/24
+    </span>
+    <span class="mc-service-badge mc-service-badge-red">
+      <i class="fas fa-rocket"></i> Express
+    </span>
+  </div>
+  
+  <p class="mc-service-card-description">
+    Besoin urgent ? Notre équipe intervient en moins de 24h pour vos urgences
+    de nettoyage : après sinistre, événement imprévu, fin de chantier...
+  </p>
+  
+  <ul class="mc-service-card-features">
+    <li>Intervention sous 24h garantie</li>
+    <li>Équipe disponible 7j/7</li>
+    <li>Devis immédiat par téléphone</li>
+    <li>Résultats garantis</li>
+  </ul>
+  
+  <div class="mc-service-card-footer">
+    <button class="mc-btn mc-btn-primary mc-btn-lg">
+      <i class="fas fa-phone-alt"></i>
+      Appeler maintenant
+    </button>
+  </div>
+</div>
+
+<!-- GRILLE DE SERVICES -->
+<div class="mc-services-grid mc-services-grid-3">
+  <!-- Cartes ici -->
+</div>
+*/

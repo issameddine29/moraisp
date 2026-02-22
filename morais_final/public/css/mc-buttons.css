@@ -1,0 +1,351 @@
+/**
+ * ============================================================================
+ * MORAIS CLEANING - SYSTÈME DE BOUTONS
+ * ============================================================================
+ * Basé sur la palette officielle rouge/bleu
+ * 
+ * RÈGLES STRICTES:
+ * - 1 seul bouton .btn-primary (rouge) par section
+ * - Boutons secondaires = bleu outline
+ * - Boutons tertiaires = liens bleus
+ * ============================================================================
+ */
+
+/* ============================================================================
+   BASE BOUTON
+   ============================================================================ */
+
+.mc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--mc-space-xs);
+  
+  padding: 0.875rem 2rem;
+  
+  font-size: 1rem;
+  font-weight: var(--mc-font-semibold);
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  
+  border: 2px solid transparent;
+  border-radius: var(--mc-radius-md);
+  
+  cursor: pointer;
+  transition: all var(--mc-transition-base);
+  
+  /* Empêcher la sélection de texte */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.mc-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ============================================================================
+   BOUTON PRIMARY (ROUGE) - ACTION PRINCIPALE UNIQUEMENT
+   ============================================================================ */
+
+.mc-btn-primary {
+  background: var(--mc-red-primary);
+  color: var(--mc-white);
+  border-color: var(--mc-red-primary);
+  box-shadow: var(--mc-shadow-sm);
+}
+
+.mc-btn-primary:hover {
+  background: var(--mc-red-dark);
+  border-color: var(--mc-red-dark);
+  box-shadow: var(--mc-shadow-red);
+  transform: translateY(-2px);
+}
+
+.mc-btn-primary:active {
+  background: var(--mc-red-dark);
+  transform: translateY(0);
+  box-shadow: var(--mc-shadow-sm);
+}
+
+/* Variante gradient (pour CTA très importants) */
+.mc-btn-primary-gradient {
+  background: var(--mc-gradient-red);
+  color: var(--mc-white);
+  border-color: transparent;
+  box-shadow: var(--mc-shadow-md);
+}
+
+.mc-btn-primary-gradient:hover {
+  box-shadow: var(--mc-shadow-red);
+  transform: translateY(-2px);
+}
+
+/* ============================================================================
+   BOUTON SECONDARY (BLEU OUTLINE) - ACTIONS SECONDAIRES
+   ============================================================================ */
+
+.mc-btn-secondary {
+  background: transparent;
+  color: var(--mc-blue-primary);
+  border-color: var(--mc-blue-primary);
+}
+
+.mc-btn-secondary:hover {
+  background: var(--mc-blue-primary);
+  color: var(--mc-white);
+  border-color: var(--mc-blue-primary);
+  box-shadow: var(--mc-shadow-blue);
+  transform: translateY(-2px);
+}
+
+.mc-btn-secondary:active {
+  background: var(--mc-blue-dark);
+  border-color: var(--mc-blue-dark);
+  transform: translateY(0);
+}
+
+/* Variante avec fond bleu */
+.mc-btn-secondary-solid {
+  background: var(--mc-blue-primary);
+  color: var(--mc-white);
+  border-color: var(--mc-blue-primary);
+}
+
+.mc-btn-secondary-solid:hover {
+  background: var(--mc-blue-dark);
+  border-color: var(--mc-blue-dark);
+  box-shadow: var(--mc-shadow-blue);
+  transform: translateY(-2px);
+}
+
+/* ============================================================================
+   BOUTON TERTIARY (LIEN BLEU) - ACTIONS MINEURES
+   ============================================================================ */
+
+.mc-btn-tertiary {
+  background: transparent;
+  color: var(--mc-blue-primary);
+  border-color: transparent;
+  padding: 0.5rem 1rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.mc-btn-tertiary:hover {
+  color: var(--mc-blue-dark);
+  background: var(--mc-bg-blue-light);
+  text-decoration: none;
+}
+
+.mc-btn-tertiary:active {
+  color: var(--mc-blue-dark);
+  background: var(--mc-bg-blue-medium);
+}
+
+/* ============================================================================
+   BOUTON GHOST (NEUTRE) - ACTIONS DISCRÈTES
+   ============================================================================ */
+
+.mc-btn-ghost {
+  background: transparent;
+  color: var(--mc-gray-800);
+  border-color: var(--mc-gray-200);
+}
+
+.mc-btn-ghost:hover {
+  background: var(--mc-gray-100);
+  border-color: var(--mc-gray-400);
+}
+
+/* ============================================================================
+   TAILLES DE BOUTONS
+   ============================================================================ */
+
+.mc-btn-sm {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+.mc-btn-md {
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+}
+
+.mc-btn-lg {
+  padding: 1.125rem 2.5rem;
+  font-size: 1.125rem;
+}
+
+.mc-btn-xl {
+  padding: 1.5rem 3rem;
+  font-size: 1.25rem;
+  font-weight: var(--mc-font-bold);
+}
+
+/* ============================================================================
+   BOUTONS AVEC ICÔNES
+   ============================================================================ */
+
+.mc-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mc-space-xs);
+}
+
+.mc-btn-icon i,
+.mc-btn-icon svg {
+  font-size: 1.25em;
+}
+
+/* Icône seule (carré) */
+.mc-btn-icon-only {
+  padding: 0.875rem;
+  width: 48px;
+  height: 48px;
+}
+
+.mc-btn-icon-only.mc-btn-sm {
+  width: 36px;
+  height: 36px;
+  padding: 0.5rem;
+}
+
+.mc-btn-icon-only.mc-btn-lg {
+  width: 56px;
+  height: 56px;
+  padding: 1rem;
+}
+
+/* ============================================================================
+   BOUTONS PLEINE LARGEUR
+   ============================================================================ */
+
+.mc-btn-block {
+  width: 100%;
+  display: flex;
+}
+
+/* ============================================================================
+   GROUPES DE BOUTONS
+   ============================================================================ */
+
+.mc-btn-group {
+  display: flex;
+  gap: var(--mc-space-sm);
+  flex-wrap: wrap;
+}
+
+.mc-btn-group-vertical {
+  flex-direction: column;
+}
+
+/* ============================================================================
+   ÉTATS SPÉCIAUX
+   ============================================================================ */
+
+/* Bouton en chargement */
+.mc-btn-loading {
+  position: relative;
+  pointer-events: none;
+  color: transparent;
+}
+
+.mc-btn-loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: var(--mc-white);
+  animation: mc-spin 0.8s linear infinite;
+}
+
+@keyframes mc-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================================
+   BOUTONS URGENTS (BADGE)
+   ============================================================================ */
+
+.mc-btn-urgent {
+  position: relative;
+}
+
+.mc-btn-urgent::before {
+  content: "URGENT";
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--mc-red-dark);
+  color: var(--mc-white);
+  font-size: 0.625rem;
+  font-weight: var(--mc-font-bold);
+  padding: 2px 8px;
+  border-radius: var(--mc-radius-full);
+  box-shadow: var(--mc-shadow-md);
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .mc-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9375rem;
+  }
+  
+  .mc-btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .mc-btn-block-mobile {
+    width: 100%;
+    display: flex;
+  }
+}
+
+/* ============================================================================
+   EXEMPLES D'UTILISATION
+   ============================================================================ */
+
+/*
+<!-- CTA Principal (1 seul par section) -->
+<button class="mc-btn mc-btn-primary mc-btn-lg">
+  <i class="fas fa-phone"></i>
+  Demander un devis gratuit
+</button>
+
+<!-- Action secondaire -->
+<button class="mc-btn mc-btn-secondary mc-btn-md">
+  <i class="fas fa-info-circle"></i>
+  En savoir plus
+</button>
+
+<!-- Lien simple -->
+<a href="#services" class="mc-btn mc-btn-tertiary">
+  Voir nos services
+</a>
+
+<!-- Groupe de boutons -->
+<div class="mc-btn-group">
+  <button class="mc-btn mc-btn-primary">Commander</button>
+  <button class="mc-btn mc-btn-secondary">Annuler</button>
+</div>
+
+<!-- Bouton urgent (express/24h) -->
+<button class="mc-btn mc-btn-primary mc-btn-lg mc-btn-urgent">
+  Intervention Express 24h
+</button>
+*/

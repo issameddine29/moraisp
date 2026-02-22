@@ -1,0 +1,82 @@
+{
+  "contact": {
+    "meta_title": "Contact Representatives - Morais Cleaning",
+    "meta_description": "Contact Morais Cleaning sales representatives in Brussels. Find the specialist for your area and professional cleaning needs.",
+    "header": {
+      "title": "Contact our Representatives",
+      "subtitle": "Find and contact the sales representative for your area for your professional cleaning needs"
+    },
+    "intro": {
+      "title": "Our regional representatives team",
+      "text": "Our sales representatives specialize in different cleaning sectors and cover all regions. Choose a representative by industry or region to get tailored support."
+    },
+    "filters": {
+      "title": "Find your representative",
+      "region_label": "Filter by region:",
+      "sector_label": "Filter by specialty:",
+      "search_label": "Search by name:",
+      "search_placeholder": "Representative name...",
+      "region_all": "All regions",
+      "region_idf": "Île-de-France",
+      "region_nord": "North",
+      "region_est": "East",
+      "region_ouest": "West",
+      "region_sud_est": "South-East",
+      "region_sud_ouest": "South-West",
+      "sector_all": "All sectors",
+      "sector_bureaux": "Offices & Retail",
+      "sector_industriel": "Industrial & Warehouses",
+      "sector_medical": "Medical & Healthcare",
+      "sector_residential": "Residential & Condominiums",
+      "sector_special": "Specialized (end of lease, post-renovation)"
+    },
+    "reps": {
+      "title": "Our Sales Representatives",
+      "no_results_title": "No representative found",
+      "no_results_text": "No representative matches your search criteria. Try different filters.",
+      "labels": {
+        "location": "Location",
+        "phone": "Phone",
+        "mobile": "Mobile",
+        "email": "Email",
+        "specialties": "Specialties"
+      },
+      "contact_btn_prefix": "Contact"
+    },
+    "info": {
+      "central_title": "Central Sales Desk",
+      "central_phone": "01 23 45 67 89",
+      "central_email": "commercial@proprenet.com",
+      "hours_title": "Hours",
+      "hours_week": "Mon–Fri: 8am–7pm",
+      "hours_sat": "Saturday: 9am–1pm",
+      "hq_title": "Head Office",
+      "hq_line1": "123 Avenue des Champs-Élysées",
+      "hq_line2": "75008 Paris, France",
+      "appointment_title": "Request an appointment",
+      "appointment_line1": "Book online",
+      "appointment_line2": "with our sales team"
+    },
+    "modal": {
+      "title_default": "Contact",
+      "close_aria": "Close",
+      "form": {
+        "name_label": "Your name *",
+        "email_label": "Your email *",
+        "phone_label": "Your phone *",
+        "company_label": "Your company",
+        "subject_label": "Subject *",
+        "subject_placeholder": "Select a subject",
+        "subject_devis": "Quote request",
+        "subject_rdv": "Schedule a meeting",
+        "subject_info": "Information request",
+        "subject_contrat": "Contract discussion",
+        "subject_autre": "Other",
+        "message_label": "Your message *",
+        "send_btn": "Send message",
+        "success": "Message sent!",
+        "error": "An error occurred. Please try again."
+      }
+    }
+  }
+}

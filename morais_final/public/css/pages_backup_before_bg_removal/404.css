@@ -1,0 +1,112 @@
+.error-404 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+.error-404-content {
+  max-width: 600px;
+  animation: fadeInUp 0.8s ease;
+}
+.error-404-number {
+  font-size: 10rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 1rem;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: bounce 2s infinite;
+}
+.error-404-icon {
+  font-size: 5rem;
+  opacity: 0.3;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-20px); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-15px); }
+}
+.btn-home {
+  background: white;
+  color: #667eea;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.btn-home:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  color: #764ba2;
+}
+.quick-links {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.quick-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+.quick-link:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: white;
+  color: white;
+}
+.sparkle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+.sparkle span {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: sparkleAnimation 3s linear infinite;
+}
+@keyframes sparkleAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px) scale(0);
+  }
+}

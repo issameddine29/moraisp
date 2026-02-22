@@ -1,0 +1,82 @@
+{
+  "contact": {
+    "meta_title": "Contact Représentants - Morais Cleaning",
+    "meta_description": "Contactez nos représentants commerciaux Morais Cleaning à Bruxelles. Trouvez le spécialiste de votre région pour vos besoins en nettoyage professionnel.",
+    "header": {
+      "title": "Contactez nos Représentants",
+      "subtitle": "Trouvez et contactez directement le représentant commercial de votre région pour vos besoins en nettoyage professionnel"
+    },
+    "intro": {
+      "title": "Notre équipe de représentants régionaux",
+      "text": "Nos représentants commerciaux sont spécialisés dans différents secteurs du nettoyage et couvrent toutes les régions. Sélectionnez un représentant selon votre secteur d'activité ou votre région pour obtenir un accompagnement personnalisé."
+    },
+    "filters": {
+      "title": "Trouvez votre représentant",
+      "region_label": "Filtrer par région :",
+      "sector_label": "Filtrer par spécialité :",
+      "search_label": "Rechercher par nom :",
+      "search_placeholder": "Nom du représentant...",
+      "region_all": "Toutes les régions",
+      "region_idf": "Île-de-France",
+      "region_nord": "Nord",
+      "region_est": "Est",
+      "region_ouest": "Ouest",
+      "region_sud_est": "Sud-Est",
+      "region_sud_ouest": "Sud-Ouest",
+      "sector_all": "Tous les secteurs",
+      "sector_bureaux": "Bureaux & Commerces",
+      "sector_industriel": "Industriel & Entrepôts",
+      "sector_medical": "Médical & Santé",
+      "sector_residential": "Résidentiel & Copropriétés",
+      "sector_special": "Spécialisé (fin de bail, après travaux)"
+    },
+    "reps": {
+      "title": "Nos Représentants Commerciaux",
+      "no_results_title": "Aucun représentant trouvé",
+      "no_results_text": "Aucun représentant ne correspond à vos critères de recherche. Essayez avec d'autres filtres.",
+      "labels": {
+        "location": "Localisation",
+        "phone": "Téléphone",
+        "mobile": "Mobile",
+        "email": "Email",
+        "specialties": "Spécialités"
+      },
+      "contact_btn_prefix": "Contacter"
+    },
+    "info": {
+      "central_title": "Service Commercial Central",
+      "central_phone": "01 23 45 67 89",
+      "central_email": "commercial@proprenet.com",
+      "hours_title": "Horaires",
+      "hours_week": "Lun-Ven: 8h-19h",
+      "hours_sat": "Samedi: 9h-13h",
+      "hq_title": "Siège Social",
+      "hq_line1": "123 Avenue des Champs-Élysées",
+      "hq_line2": "75008 Paris, France",
+      "appointment_title": "Demande de Rendez-vous",
+      "appointment_line1": "Prise de rendez-vous en ligne",
+      "appointment_line2": "avec notre équipe commerciale"
+    },
+    "modal": {
+      "title_default": "Contact",
+      "close_aria": "Fermer",
+      "form": {
+        "name_label": "Votre nom *",
+        "email_label": "Votre email *",
+        "phone_label": "Votre téléphone *",
+        "company_label": "Votre entreprise",
+        "subject_label": "Sujet *",
+        "subject_placeholder": "Sélectionnez un sujet",
+        "subject_devis": "Demande de devis",
+        "subject_rdv": "Prise de rendez-vous",
+        "subject_info": "Demande d'information",
+        "subject_contrat": "Discussion contrat",
+        "subject_autre": "Autre",
+        "message_label": "Votre message *",
+        "send_btn": "Envoyer le message",
+        "success": "Message envoyé !",
+        "error": "Une erreur est survenue. Veuillez réessayer."
+      }
+    }
+  }
+}

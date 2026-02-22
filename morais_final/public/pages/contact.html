@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title data-i18n="contact.meta_title">Contact Représentants - Morais Cleaning</title>
+    <link rel="canonical" href="https://morais-cleaning.com/public/pages/contact.html" />
+<meta content="Contactez nos représentants commerciaux Morais Cleaning à Bruxelles. Trouvez le spécialiste de votre région pour vos besoins en nettoyage professionnel." data-i18n="contact.meta_description" name="description"/>
+<!-- CSS -->
+<!-- Identité Visuelle -->
+<!-- Google Fonts -->
+<!-- Favicon -->
+<link href="../assets/favicon.ico" rel="icon" type="image/x-icon"/>
+<!-- Stylesheets -->
+<link href="../css/theme.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="../css/services.css" rel="stylesheet"/><link href="../css/style.css" rel="stylesheet"/>
+<link href="../css/mc-colors.css" rel="stylesheet"/>
+<link href="../css/mc-buttons.css" rel="stylesheet"/>
+<link href="../css/components/navbar.css" rel="stylesheet"/>
+<link href="../css/components/footer.css" rel="stylesheet"/>
+<link href="../css/components/whatsapp.css" rel="stylesheet"/>
+<link href="../css/pages/contact.css" rel="stylesheet"/>
+<link href="../css/pages/services-hero-improvements.css" rel="stylesheet"/>
+<link href="../css/mc-service-cards.css" rel="stylesheet"/></head>
+<body class="mc-unified">
+<!-- Navbar -->
+<div id="navbar-container">
+</div>
+<header>
+<div class="container">
+<div class="logo">
+<i class="fas fa-broom"></i>
+</div>
+<h1 data-i18n="contact.header.title">Contactez nos Représentants</h1>
+<p data-i18n="contact.header.subtitle">Trouvez et contactez directement le représentant commercial de votre région pour vos besoins en nettoyage
+                professionnel</p>
+</div>
+</header>
+<main class="container">
+<section class="page-intro">
+<h2 data-i18n="contact.intro.title">Notre équipe de représentants régionaux</h2>
+<p data-i18n="contact.intro.text">Nos représentants commerciaux sont spécialisés dans différents secteurs du nettoyage et couvrent toutes
+                les régions. Sélectionnez un représentant selon votre secteur d'activité ou votre région pour obtenir un
+                accompagnement personnalisé.</p>
+</section>
+<section class="filter-section">
+<h3 class="filter-title" data-i18n="contact.filters.title">Trouvez votre représentant</h3>
+<div class="filters">
+<div class="filter-group">
+<label data-i18n="contact.filters.region_label" for="region-filter">Filtrer par région :</label>
+<select id="region-filter">
+<option data-i18n="contact.filters.region_all" value="all">Toutes les régions</option>
+<option data-i18n="contact.filters.region_idf" value="idf">Île-de-France</option>
+<option data-i18n="contact.filters.region_nord" value="nord">Nord</option>
+<option data-i18n="contact.filters.region_est" value="est">Est</option>
+<option data-i18n="contact.filters.region_ouest" value="ouest">Ouest</option>
+<option data-i18n="contact.filters.region_sud_est" value="sud-est">Sud-Est</option>
+<option data-i18n="contact.filters.region_sud_ouest" value="sud-ouest">Sud-Ouest</option>
+</select>
+</div>
+<div class="filter-group">
+<label data-i18n="contact.filters.sector_label" for="sector-filter">Filtrer par spécialité :</label>
+<select id="sector-filter">
+<option data-i18n="contact.filters.sector_all" value="all">Tous les secteurs</option>
+<option data-i18n="contact.filters.sector_bureaux" value="bureaux">Bureaux &amp; Commerces</option>
+<option data-i18n="contact.filters.sector_industriel" value="industriel">Industriel &amp; Entrepôts</option>
+<option data-i18n="contact.filters.sector_medical" value="medical">Médical &amp; Santé</option>
+<option data-i18n="contact.filters.sector_residential" value="residential">Résidentiel &amp; Copropriétés</option>
+<option data-i18n="contact.filters.sector_special" value="special">Spécialisé (fin de bail, après travaux)</option>
+</select>
+</div>
+<div class="filter-group">
+<label data-i18n="contact.filters.search_label" for="search-filter">Rechercher par nom :</label>
+<input data-i18n-placeholder="contact.filters.search_placeholder" id="search-filter" placeholder="Nom du représentant..." type="text"/>
+</div>
+</div>
+</section>
+<section class="representatives-section">
+<h2 class="section-title" data-i18n="contact.reps.title">Nos Représentants Commerciaux</h2>
+<div class="representative-grid" id="representatives-container">
+<!-- Les cartes des représentants seront générées ici par JavaScript -->
+</div>
+</section>
+<section class="contact-info">
+<div class="info-item">
+<div class="info-icon">
+<i class="fas fa-headset"></i>
+</div>
+<div class="info-content">
+<h3 data-i18n="contact.info.central_title">Service Commercial Central</h3>
+<p><span data-i18n="contact.info.central_phone">01 23 45 67 89</span><br/><span data-i18n="contact.info.central_email">commercial@proprenet.com</span></p>
+</div>
+</div>
+<div class="info-item">
+<div class="info-icon">
+<i class="fas fa-clock"></i>
+</div>
+<div class="info-content">
+<h3 data-i18n="contact.info.hours_title">Horaires</h3>
+<p><span data-i18n="contact.info.hours_week">Lun-Ven: 8h-19h</span><br/><span data-i18n="contact.info.hours_sat">Samedi: 9h-13h</span></p>
+</div>
+</div>
+<div class="info-item">
+<div class="info-icon">
+<i class="fas fa-map-marker-alt"></i>
+</div>
+<div class="info-content">
+<h3 data-i18n="contact.info.hq_title">Siège Social</h3>
+<p><span data-i18n="contact.info.hq_line1">123 Avenue des Champs-Élysées</span><br/><span data-i18n="contact.info.hq_line2">75008 Paris, France</span></p>
+</div>
+</div>
+<div class="info-item">
+<div class="info-icon">
+<i class="fas fa-file-contract"></i>
+</div>
+<div class="info-content">
+<h3 data-i18n="contact.info.appointment_title">Demande de Rendez-vous</h3>
+<p><span data-i18n="contact.info.appointment_line1">Prise de rendez-vous en ligne</span><br/><span data-i18n="contact.info.appointment_line2">avec notre équipe commerciale</span></p>
+</div>
+</div>
+</section>
+</main>
+<!-- Modal de contact -->
+<div class="contact-modal" id="contactModal">
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="modal-title" data-i18n="contact.modal.title_default" id="modalRepName">Contact</h3>
+<button class="close-modal" data-i18n-aria-label="contact.modal.close_aria" id="closeModal">×</button>
+</div>
+<form id="contactForm">
+<input id="modalRepId" type="hidden"/>
+<input id="modalRepEmail" type="hidden"/>
+
+<!-- Messages de feedback -->
+<div id="contact-success" style="display:none; padding: 15px; margin-bottom: 15px; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 5px;">
+✓ Message envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.
+</div>
+<div id="contact-error" style="display:none; padding: 15px; margin-bottom: 15px; background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; border-radius: 5px;">
+✗ Une erreur est survenue. Veuillez réessayer ou nous contacter directement.
+</div>
+
+<div class="form-group">
+<label data-i18n="contact.modal.form.name_label" for="senderName">Votre nom *</label>
+<input id="senderName" required="" type="text"/>
+</div>
+<div class="form-group">
+<label data-i18n="contact.modal.form.email_label" for="senderEmail">Votre email *</label>
+<input id="senderEmail" required="" type="email"/>
+</div>
+<div class="form-group">
+<label data-i18n="contact.modal.form.phone_label" for="senderPhone">Votre téléphone *</label>
+<input id="senderPhone" required="" type="tel"/>
+</div>
+<div class="form-group">
+<label data-i18n="contact.modal.form.company_label" for="senderCompany">Votre entreprise</label>
+<input id="senderCompany" type="text"/>
+</div>
+<div class="form-group">
+<label data-i18n="contact.modal.form.subject_label" for="messageSubject">Sujet *</label>
+<select id="messageSubject" required="">
+<option data-i18n="contact.modal.form.subject_placeholder" value="">Sélectionnez un sujet</option>
+<option data-i18n="contact.modal.form.subject_devis" value="devis">Demande de devis</option>
+<option data-i18n="contact.modal.form.subject_rdv" value="rendezvous">Prise de rendez-vous</option>
+<option data-i18n="contact.modal.form.subject_info" value="information">Demande d'information</option>
+<option data-i18n="contact.modal.form.subject_contrat" value="contrat">Discussion contrat</option>
+<option data-i18n="contact.modal.form.subject_autre" value="autre">Autre</option>
+</select>
+</div>
+<div class="form-group">
+<label data-i18n="contact.modal.form.message_label" for="messageContent">Votre message *</label>
+<textarea id="messageContent" required="" rows="4"></textarea>
+</div>
+<button class="modal-btn" data-i18n="contact.modal.form.send_btn" type="submit">Envoyer le message</button>
+</form>
+</div>
+</div>
+<!-- Footer -->
+<div id="footer-container"></div>
+<!-- WhatsApp -->
+<div id="whatsapp-widget"></div>
+<!-- Scripts -->
+
+
+
+
+
+
+
+<script src="../js/app.js"></script><script src="../js/contact.js"></script><script src="../js/active-page.js"></script></body>
+</html>

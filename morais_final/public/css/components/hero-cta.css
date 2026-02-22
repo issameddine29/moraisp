@@ -1,0 +1,152 @@
+/* ============================================ */
+/* HERO CTA BUTTONS - RESPONSIVE                */
+/* Style pour les 2 boutons dans le hero        */
+/* ============================================ */
+
+/* Conteneur des boutons hero */
+.hero-buttons,
+.hero-actions,
+.hero-cta {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* Boutons hero - styles de base (si pas déjà définis) */
+.hero-buttons .btn,
+.hero-actions .btn,
+.hero-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Icônes dans les boutons */
+.hero-buttons .btn i,
+.hero-actions .btn i,
+.hero-cta .btn i {
+    font-size: 1.1em;
+}
+
+/* Effet hover pour tous les boutons hero */
+.hero-buttons .btn:hover,
+.hero-actions .btn:hover,
+.hero-cta .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Effet focus pour accessibilité */
+.hero-buttons .btn:focus,
+.hero-actions .btn:focus,
+.hero-cta .btn:focus {
+    outline: 3px solid rgba(185, 28, 28, 0.5);
+    outline-offset: 2px;
+}
+
+/* Mobile : boutons empilés verticalement */
+@media (max-width: 768px) {
+    .hero-buttons,
+    .hero-actions,
+    .hero-cta {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .hero-buttons .btn,
+    .hero-actions .btn,
+    .hero-cta .btn {
+        width: 100%;
+        max-width: 400px;
+        padding: 16px 24px;
+        font-size: 1rem;
+    }
+}
+
+/* Très petit mobile */
+@media (max-width: 480px) {
+    .hero-buttons .btn,
+    .hero-actions .btn,
+    .hero-cta .btn {
+        max-width: 100%;
+        font-size: 0.95rem;
+        padding: 14px 20px;
+    }
+    
+    .hero-buttons .btn i,
+    .hero-actions .btn i,
+    .hero-cta .btn i {
+        font-size: 1em;
+    }
+}
+
+/* Desktop : alignement horizontal optimisé */
+@media (min-width: 769px) {
+    .hero-buttons,
+    .hero-actions,
+    .hero-cta {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn,
+    .hero-actions .btn,
+    .hero-cta .btn {
+        flex: 0 0 auto;
+        min-width: 180px;
+    }
+}
+
+/* Animation d'apparition (optionnel) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-cta-quick,
+.hero-cta-full {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.hero-cta-quick {
+    animation-delay: 0.1s;
+}
+
+.hero-cta-full {
+    animation-delay: 0.2s;
+}
+
+/* Prévenir le débordement horizontal */
+.hero-buttons,
+.hero-actions,
+.hero-cta {
+    max-width: 100%;
+    overflow: visible;
+}
+
+/* Touch-friendly sur mobile */
+@media (hover: none) and (pointer: coarse) {
+    .hero-buttons .btn,
+    .hero-actions .btn,
+    .hero-cta .btn {
+        min-height: 48px; /* Taille minimale pour touch */
+        padding: 16px 24px;
+    }
+}

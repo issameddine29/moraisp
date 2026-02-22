@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "title": "Morais Cleaning - Nettoyage Professionnel à Bruxelles",
+    "description": "Service de nettoyage professionnel à Bruxelles et environs. Bureaux, copropriétés, résidentiel, industriel. Devis gratuit. Équipe qualifiée, produits écologiques."
+  },
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "about": "À propos",
+    "contact": "Contact",
+    "quote": "Devis gratuit",
+    "quoteQuick": "Devis rapide",
+    "quoteFull": "Devis complet"
+  },
+  "hero": {
+    "title": "Nettoyage Professionnel à Bruxelles",
+    "subtitle": "Service de nettoyage de haute qualité pour entreprises et particuliers. Disponible 24/7, équipe qualifiée, produits écologiques.",
+    "cta_quote": "Devis rapide",
+    "cta_services": "Nos services",
+    "quoteQuick": "Devis rapide",
+    "quoteFull": "Devis complet"
+  },
+  "services": {
+    "title": "Nos Services",
+    "subtitle": "Solutions de nettoyage adaptées à vos besoins",
+    "professional": {
+      "title": "Professionnel",
+      "offices": "Nettoyage de bureaux",
+      "condos": "Copropriétés",
+      "concierge": "Conciergerie",
+      "commercial": "Locaux commerciaux",
+      "industrial": "Nettoyage industriel",
+      "medical": "Cabinets médicaux"
+    },
+    "residential": {
+      "title": "Résidentiel",
+      "home": "Maison / Appartement",
+      "endlease": "Fin de bail",
+      "windows": "Nettoyage de vitres",
+      "afterworks": "Après travaux"
+    },
+    "specialized": {
+      "title": "Spécialisé",
+      "carpets": "Tapis et moquettes",
+      "furniture": "Canapés et fauteuils",
+      "parking": "Parkings et garages"
+    }
+  },
+  "realisations": {
+    "title": "Nos Réalisations",
+    "subtitle": "Découvrez quelques-uns de nos projets récents",
+    "filter_all": "Toutes",
+    "filter_professional": "Professionnel",
+    "filter_residential": "Résidentiel",
+    "filter_specialized": "Spécialisé",
+    "search_placeholder": "Rechercher..."
+  },
+  "testimonials": {
+    "title": "Témoignages clients",
+    "client1": {
+      "text": "Morais Cleaning assure le nettoyage de nos bureaux depuis 2 ans. Service fiable, équipe ponctuelle et résultats impeccables. Je recommande vivement!",
+      "name": "Pierre Dubois",
+      "company": "Gérant, Société ABC"
+    },
+    "client2": {
+      "text": "Service après-vente exceptionnel. Ils se sont adaptés à nos horaires spécifiques et le résultat dépasse nos attentes. Un partenaire de confiance.",
+      "name": "Sophie Martin",
+      "company": "Directrice, Hotel Plaza"
+    },
+    "client3": {
+      "text": "Le nettoyage après notre rénovation était parfait. L'équipe a travaillé efficacement et a rendu notre nouveau local prêt à l'emploi. Excellent rapport qualité-prix.",
+      "name": "Thomas Lefebvre",
+      "company": "Propriétaire, Restaurant Le Gourmet"
+    }
+  },
+  "recruitment": {
+    "title": "Rejoignez notre équipe",
+    "text": "Nous recherchons constamment des professionnels du nettoyage motivés, sérieux et passionnés par l'excellence du service. Si vous souhaitez faire partie d'une équipe dynamique avec des conditions de travail optimales, contactez-nous.",
+    "cta": "Postuler maintenant"
+  },
+  "cta": {
+    "title": "Prêt pour un environnement impeccable?",
+    "text": "Demandez un devis gratuit et sans engagement pour l'un de nos services de nettoyage professionnel. Notre équipe vous répond rapidement.",
+    "button": "Demander un devis gratuit",
+    "quoteQuick": "Devis rapide",
+    "quoteFull": "Devis complet",
+    "quoteQuickDesc": "Estimation en 30 secondes",
+    "quoteFullDesc": "Calculateur détaillé avec prix"
+  },
+  "footer": {
+    "about_title": "Morais Cleaning",
+    "about_text": "Service professionnel de nettoyage à Bruxelles et environs. Qualité, fiabilité, satisfaction client.",
+    "services_title": "Services",
+    "legal_title": "Légal",
+    "contact_title": "Contact",
+    "copyright": "© 2024 Morais Cleaning. Tous droits réservés."
+  },
+  "quickQuote": {
+    "badge": "DEVIS RAPIDE GRATUIT",
+    "title": "Obtenez votre estimation en 30 secondes",
+    "subtitle": "Remplissez ce formulaire rapide et recevez votre devis personnalisé par email ou téléphone sous 2h ouvrées.",
+    "serviceLabel": "Service demandé",
+    "cityLabel": "Ville ou Code Postal",
+    "cityPlaceholder": "Ex: Bruxelles, 1000, Schaerbeek...",
+    "surfaceLabel": "Surface (m²) ou Quantité",
+    "surfacePlaceholder": "Ex: 150 m², 3 pièces...",
+    "emailLabel": "Email",
+    "emailPlaceholder": "votre@email.com",
+    "phoneLabel": "Téléphone",
+    "phonePlaceholder": "+32 XXX XX XX XX",
+    "messageLabel": "Détails supplémentaires (optionnel)",
+    "messagePlaceholder": "Précisez vos besoins spécifiques, horaires souhaités, fréquence...",
+    "submitBtn": "Recevoir mon devis gratuit",
+    "securityNote": "Vos données sont sécurisées et ne seront jamais partagées",
+    "successTitle": "Demande envoyée avec succès !",
+    "successMessage": "Nous vous répondrons sous 2h ouvrées avec votre devis personnalisé.",
+    "errorTitle": "Une erreur est survenue",
+    "errorMessage": "Veuillez réessayer ou nous contacter directement.",
+    "trustResponse": "Réponse sous 2h",
+    "trustFree": "Devis 100% gratuit",
+    "trustNoCommit": "Sans engagement",
+    "trustTransparent": "Prix transparents"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Notre équipe est à votre disposition pour répondre à toutes vos questions",
+    "info_title": "Nos Coordonnées",
+    "phone_label": "Téléphone",
+    "email_label": "Email",
+    "address_label": "Adresse",
+    "hours_label": "Horaires",
+    "form_title": "Envoyez-nous un message",
+    "form_name": "Nom complet",
+    "form_email": "Email",
+    "form_phone": "Téléphone",
+    "form_subject": "Sujet",
+    "form_message": "Message",
+    "form_submit": "Envoyer le message",
+    "success_message": "Votre message a été envoyé avec succès ! Nous vous répondrons dans les plus brefs délais.",
+    "error_message": "Une erreur est survenue. Veuillez réessayer ou nous contacter directement par téléphone.",
+    "cta_title": "Besoin d'un devis ?",
+    "cta_subtitle": "Obtenez une estimation gratuite et personnalisée en quelques clics",
+    "cta_button": "Demander un devis gratuit"
+  }
+}

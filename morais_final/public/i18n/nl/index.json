@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "title": "Morais Cleaning - Professionele Schoonmaak in Brussel",
+    "description": "Professionele schoonmaakdienst in Brussel en omgeving. Kantoren, appartementen, residentieel, industrieel. Gratis offerte. Gekwalificeerd team, ecologische producten."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Diensten",
+    "about": "Over ons",
+    "contact": "Contact",
+    "quote": "Gratis Offerte",
+    "quoteQuick": "Snelle offerte",
+    "quoteFull": "Volledige offerte"
+  },
+  "hero": {
+    "title": "Professionele Schoonmaak in Brussel",
+    "subtitle": "Hoogwaardige schoonmaakdienst voor bedrijven en particulieren. 24/7 beschikbaar, gekwalificeerd team, ecologische producten.",
+    "cta_quote": "Snelle Offerte",
+    "cta_services": "Onze Diensten",
+    "quoteQuick": "Snelle offerte",
+    "quoteFull": "Volledige offerte"
+  },
+  "services": {
+    "title": "Onze Diensten",
+    "subtitle": "Schoonmaakoplossingen aangepast aan uw behoeften",
+    "professional": {
+      "title": "Professioneel",
+      "offices": "Kantoorschoonmaak",
+      "condos": "Appartementsgebouwen",
+      "concierge": "Conciërge",
+      "commercial": "Commerciële ruimtes",
+      "industrial": "Industriële schoonmaak",
+      "medical": "Medische praktijken"
+    },
+    "residential": {
+      "title": "Residentieel",
+      "home": "Huis / Appartement",
+      "endlease": "Einde huurcontract",
+      "windows": "Ramenreiniging",
+      "afterworks": "Na werkzaamheden"
+    },
+    "specialized": {
+      "title": "Gespecialiseerd",
+      "carpets": "Tapijten en vloerbedekking",
+      "furniture": "Banken en stoelen",
+      "parking": "Parkings en garages"
+    }
+  },
+  "realisations": {
+    "title": "Onze Realisaties",
+    "subtitle": "Ontdek enkele van onze recente projecten",
+    "filter_all": "Alle",
+    "filter_professional": "Professioneel",
+    "filter_residential": "Residentieel",
+    "filter_specialized": "Gespecialiseerd",
+    "search_placeholder": "Zoeken..."
+  },
+  "testimonials": {
+    "title": "Klantgetuigenissen",
+    "client1": {
+      "text": "Morais Cleaning verzorgt de schoonmaak van onze kantoren al 2 jaar. Betrouwbare service, punctueel team en onberispelijke resultaten. Ik beveel het ten zeerste aan!",
+      "name": "Pierre Dubois",
+      "company": "Manager, Bedrijf ABC"
+    },
+    "client2": {
+      "text": "Uitzonderlijke klantenservice. Ze hebben zich aangepast aan ons specifieke schema en het resultaat overtreft onze verwachtingen. Een betrouwbare partner.",
+      "name": "Sophie Martin",
+      "company": "Directeur, Plaza Hotel"
+    },
+    "client3": {
+      "text": "De schoonmaak na onze renovatie was perfect. Het team werkte efficiënt en maakte onze nieuwe ruimte klaar voor gebruik. Uitstekende prijs-kwaliteitverhouding.",
+      "name": "Thomas Lefebvre",
+      "company": "Eigenaar, Restaurant Le Gourmet"
+    }
+  },
+  "recruitment": {
+    "title": "Word lid van ons team",
+    "text": "We zijn voortdurend op zoek naar gemotiveerde, serieuze schoonmaakprofessionals die gepassioneerd zijn door service-uitmuntendheid. Als u deel wilt uitmaken van een dynamisch team met optimale arbeidsomstandigheden, neem dan contact met ons op.",
+    "cta": "Nu solliciteren"
+  },
+  "cta": {
+    "title": "Klaar voor een onberispelijke omgeving?",
+    "text": "Vraag een gratis offerte aan zonder verplichting voor één van onze professionele schoonmaakdiensten. Ons team reageert snel.",
+    "button": "Vraag een gratis offerte aan",
+    "quoteQuick": "Snelle offerte",
+    "quoteFull": "Volledige offerte",
+    "quoteQuickDesc": "Schatting in 30 seconden",
+    "quoteFullDesc": "Gedetailleerde calculator met prijzen"
+  },
+  "footer": {
+    "about_title": "Morais Cleaning",
+    "about_text": "Professionele schoonmaakdienst in Brussel en omgeving. Kwaliteit, betrouwbaarheid, klanttevredenheid.",
+    "services_title": "Diensten",
+    "legal_title": "Juridisch",
+    "contact_title": "Contact",
+    "copyright": "© 2024 Morais Cleaning. Alle rechten voorbehouden."
+  },
+  "quickQuote": {
+    "badge": "GRATIS SNELLE OFFERTE",
+    "title": "Ontvang uw schatting in 30 seconden",
+    "subtitle": "Vul dit snelle formulier in en ontvang uw gepersonaliseerde offerte per e-mail of telefoon binnen 2 werkuren.",
+    "serviceLabel": "Gevraagde dienst",
+    "cityLabel": "Stad of Postcode",
+    "cityPlaceholder": "Bijv: Brussel, 1000, Schaarbeek...",
+    "surfaceLabel": "Oppervlakte (m²) of Aantal",
+    "surfacePlaceholder": "Bijv: 150 m², 3 kamers...",
+    "emailLabel": "E-mail",
+    "emailPlaceholder": "uw@email.com",
+    "phoneLabel": "Telefoon",
+    "phonePlaceholder": "+32 XXX XX XX XX",
+    "messageLabel": "Extra details (optioneel)",
+    "messagePlaceholder": "Specificeer uw specifieke behoeften, gewenst schema, frequentie...",
+    "submitBtn": "Ontvang mijn gratis offerte",
+    "securityNote": "Uw gegevens zijn veilig en worden nooit gedeeld",
+    "successTitle": "Aanvraag succesvol verzonden!",
+    "successMessage": "We antwoorden binnen 2 werkuren met uw gepersonaliseerde offerte.",
+    "errorTitle": "Er is een fout opgetreden",
+    "errorMessage": "Probeer het opnieuw of neem rechtstreeks contact met ons op.",
+    "trustResponse": "Antwoord binnen 2u",
+    "trustFree": "100% gratis offerte",
+    "trustNoCommit": "Geen verplichtingen",
+    "trustTransparent": "Transparante prijzen"
+  },
+  "contact": {
+    "title": "Neem contact op",
+    "subtitle": "Ons team staat tot uw beschikking om al uw vragen te beantwoorden",
+    "info_title": "Onze Contactgegevens",
+    "phone_label": "Telefoon",
+    "email_label": "E-mail",
+    "address_label": "Adres",
+    "hours_label": "Openingstijden",
+    "form_title": "Stuur ons een bericht",
+    "form_name": "Volledige naam",
+    "form_email": "E-mail",
+    "form_phone": "Telefoon",
+    "form_subject": "Onderwerp",
+    "form_message": "Bericht",
+    "form_submit": "Bericht verzenden",
+    "success_message": "Uw bericht is succesvol verzonden! We antwoorden zo snel mogelijk.",
+    "error_message": "Er is een fout opgetreden. Probeer het opnieuw of neem direct telefonisch contact met ons op.",
+    "cta_title": "Een offerte nodig?",
+    "cta_subtitle": "Ontvang een gratis gepersonaliseerde schatting in slechts een paar klikken",
+    "cta_button": "Vraag een gratis offerte aan"
+  }
+}

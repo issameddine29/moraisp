@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "title": "Morais Cleaning - Professional Cleaning in Brussels",
+    "description": "Professional cleaning service in Brussels and surrounding areas. Offices, condominiums, residential, industrial. Free quote. Qualified team, ecological products."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact",
+    "quote": "Free Quote",
+    "quoteQuick": "Quick Quote",
+    "quoteFull": "Full Quote"
+  },
+  "hero": {
+    "title": "Professional Cleaning in Brussels",
+    "subtitle": "High-quality cleaning service for businesses and individuals. Available 24/7, qualified team, ecological products.",
+    "cta_quote": "Quick Quote",
+    "cta_services": "Our Services",
+    "quoteQuick": "Quick quote",
+    "quoteFull": "Full quote"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Cleaning solutions tailored to your needs",
+    "professional": {
+      "title": "Professional",
+      "offices": "Office cleaning",
+      "condos": "Condominiums",
+      "concierge": "Concierge",
+      "commercial": "Commercial premises",
+      "industrial": "Industrial cleaning",
+      "medical": "Medical offices"
+    },
+    "residential": {
+      "title": "Residential",
+      "home": "House / Apartment",
+      "endlease": "End of lease",
+      "windows": "Window cleaning",
+      "afterworks": "After construction"
+    },
+    "specialized": {
+      "title": "Specialized",
+      "carpets": "Carpets and rugs",
+      "furniture": "Sofas and armchairs",
+      "parking": "Parking and garages"
+    }
+  },
+  "realisations": {
+    "title": "Our Achievements",
+    "subtitle": "Discover some of our recent projects",
+    "filter_all": "All",
+    "filter_professional": "Professional",
+    "filter_residential": "Residential",
+    "filter_specialized": "Specialized",
+    "search_placeholder": "Search..."
+  },
+  "testimonials": {
+    "title": "Customer Testimonials",
+    "client1": {
+      "text": "Morais Cleaning has been cleaning our offices for 2 years. Reliable service, punctual team and impeccable results. I highly recommend!",
+      "name": "Pierre Dubois",
+      "company": "Manager, Company ABC"
+    },
+    "client2": {
+      "text": "Exceptional after-sales service. They adapted to our specific schedule and the result exceeds our expectations. A trusted partner.",
+      "name": "Sophie Martin",
+      "company": "Director, Plaza Hotel"
+    },
+    "client3": {
+      "text": "The cleaning after our renovation was perfect. The team worked efficiently and made our new premises ready to use. Excellent value for money.",
+      "name": "Thomas Lefebvre",
+      "company": "Owner, Le Gourmet Restaurant"
+    }
+  },
+  "recruitment": {
+    "title": "Join Our Team",
+    "text": "We are constantly looking for motivated, serious cleaning professionals passionate about service excellence. If you want to be part of a dynamic team with optimal working conditions, contact us.",
+    "cta": "Apply Now"
+  },
+  "cta": {
+    "title": "Ready for an Impeccable Environment?",
+    "text": "Request a free quote without obligation for one of our professional cleaning services. Our team will respond quickly.",
+    "button": "Request a Free Quote",
+    "quoteQuick": "Quick Quote",
+    "quoteFull": "Full Quote",
+    "quoteQuickDesc": "Estimate in 30 seconds",
+    "quoteFullDesc": "Detailed calculator with pricing"
+  },
+  "footer": {
+    "about_title": "Morais Cleaning",
+    "about_text": "Professional cleaning service in Brussels and surrounding areas. Quality, reliability, customer satisfaction.",
+    "services_title": "Services",
+    "legal_title": "Legal",
+    "contact_title": "Contact",
+    "copyright": "© 2024 Morais Cleaning. All rights reserved."
+  },
+  "quickQuote": {
+    "badge": "FREE QUICK QUOTE",
+    "title": "Get your estimate in 30 seconds",
+    "subtitle": "Fill out this quick form and receive your personalized quote by email or phone within 2 business hours.",
+    "serviceLabel": "Service requested",
+    "cityLabel": "City or Postal Code",
+    "cityPlaceholder": "Ex: Brussels, 1000, Schaerbeek...",
+    "surfaceLabel": "Surface (m²) or Quantity",
+    "surfacePlaceholder": "Ex: 150 m², 3 rooms...",
+    "emailLabel": "Email",
+    "emailPlaceholder": "your@email.com",
+    "phoneLabel": "Phone",
+    "phonePlaceholder": "+32 XXX XX XX XX",
+    "messageLabel": "Additional details (optional)",
+    "messagePlaceholder": "Specify your specific needs, desired schedule, frequency...",
+    "submitBtn": "Get my free quote",
+    "securityNote": "Your data is secure and will never be shared",
+    "successTitle": "Request sent successfully!",
+    "successMessage": "We will respond within 2 business hours with your personalized quote.",
+    "errorTitle": "An error occurred",
+    "errorMessage": "Please try again or contact us directly.",
+    "trustResponse": "Response within 2h",
+    "trustFree": "100% free quote",
+    "trustNoCommit": "No commitment",
+    "trustTransparent": "Transparent pricing"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Our team is at your disposal to answer all your questions",
+    "info_title": "Our Contact Information",
+    "phone_label": "Phone",
+    "email_label": "Email",
+    "address_label": "Address",
+    "hours_label": "Hours",
+    "form_title": "Send us a message",
+    "form_name": "Full name",
+    "form_email": "Email",
+    "form_phone": "Phone",
+    "form_subject": "Subject",
+    "form_message": "Message",
+    "form_submit": "Send message",
+    "success_message": "Your message has been sent successfully! We will respond as soon as possible.",
+    "error_message": "An error occurred. Please try again or contact us directly by phone.",
+    "cta_title": "Need a quote?",
+    "cta_subtitle": "Get a free personalized estimate in just a few clicks",
+    "cta_button": "Request a free quote"
+  }
+}
