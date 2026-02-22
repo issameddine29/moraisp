@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <!--
 ╔══════════════════════════════════════════════════════════════════╗
-║  EMAIL CANDIDAT — Confirmation réception candidature            ║
+║  EMAIL CANDIDAT — Confirmation de candidature                    ║
 ║  Morais Cleaning — Usage n8n                                     ║
 ╠══════════════════════════════════════════════════════════════════╣
 ║  Variables n8n (FormData depuis recrutement.js)                  ║
 ║                                                                  ║
 ║  {{ $json.nom }}         Nom du candidat                         ║
-║  {{ $json.email }}       Email du candidat                       ║
-║  {{ $json.telephone }}   Téléphone                               ║
+║  {{ $json.email }}       Email                                   ║
 ║  {{ $json.poste }}       Poste visé                              ║
-║  {{ $json.experience }}  Domaines d'expérience (CSV)             ║
-║  {{ $json.motivation }}  Lettre de motivation                     ║
 ║  {{ $json.timestamp }}   Horodatage ISO                          ║
 ╠══════════════════════════════════════════════════════════════════╣
 ║  Champ "Sujet" n8n :                                             ║
-║  Votre candidature chez Morais Cleaning — Bien reçue !           ║
+║  Votre candidature chez Morais Cleaning                          ║
 ╚══════════════════════════════════════════════════════════════════╝
 -->
 <html lang="fr">
@@ -23,182 +20,209 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Confirmation de votre candidature — Morais Cleaning</title>
+  <title>Confirmation de candidature — Morais Cleaning</title>
+  <!--[if mso]>
+  <noscript><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript>
+  <![endif]-->
   <style>
+    /* Reset */
     body, table, td, a { -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
-    table, td  { mso-table-lspace:0pt; mso-table-rspace:0pt; border-collapse:collapse; }
-    body       { margin:0; padding:0; background:#f0f4f8; }
+    table, td { mso-table-lspace:0pt; mso-table-rspace:0pt; border-collapse:collapse; }
+    img { border:0; height:auto; outline:none; text-decoration:none; -ms-interpolation-mode:bicubic; }
+    body { margin:0; padding:0; width:100% !important; min-width:100%; background-color:#f2f5f9; }
 
-    .wrapper   { max-width:580px; margin:32px auto; background:#ffffff;
-                 border-radius:10px; overflow:hidden; box-shadow:0 3px 18px rgba(0,0,0,.09); }
+    /* Wrapper */
+    .email-wrapper  { width:100%; background:#f2f5f9; padding:32px 0; }
+    .email-card     { max-width:600px; margin:0 auto; background:#ffffff; border-radius:12px; overflow:hidden;
+                      box-shadow:0 4px 24px rgba(0,0,0,.08); }
 
     /* Header */
-    .header    { background:linear-gradient(135deg,#1a3a8f 0%,#0d2560 100%); padding:36px 38px 30px; text-align:center; }
-    .brand     { font-family:'Segoe UI',Arial,sans-serif; font-size:24px; font-weight:700; color:#fff; margin:0; }
-    .brand span{ color:#ff7f50; }
-    .tagline   { font-family:Arial,sans-serif; font-size:12px; color:rgba(255,255,255,.6);
-                 text-transform:uppercase; letter-spacing:.6px; margin:6px 0 20px; }
-    .hdr-icon  { font-size:40px; margin:0 0 12px; display:block; }
-    .hdr-title { font-family:'Segoe UI',Arial,sans-serif; font-size:21px; font-weight:600;
-                 color:#ffffff; margin:0; line-height:1.35; }
+    .header         { background:linear-gradient(135deg,#1a3a8f 0%,#0d2560 100%); padding:40px; text-align:center; }
+    .brand-name     { font-family:'Segoe UI',Arial,sans-serif; font-size:28px; font-weight:700;
+                      color:#ffffff; letter-spacing:.4px; margin:0; }
+    .brand-name span{ color:#ff7f50; }
+    .header-tagline { font-family:Arial,sans-serif; font-size:12px; color:rgba(255,255,255,.6);
+                      margin:6px 0 22px; letter-spacing:.8px; text-transform:uppercase; }
+    .header-icon    { font-size:52px; margin-bottom:14px; display:block; }
+    .header-title   { font-family:'Segoe UI',Arial,sans-serif; font-size:22px; font-weight:600;
+                      color:#ffffff; margin:0; line-height:1.4; }
 
     /* Body */
-    .body      { padding:34px 38px; }
-    .greeting  { font-family:'Segoe UI',Arial,sans-serif; font-size:17px; color:#1a2940;
-                 margin:0 0 16px; font-weight:600; }
-    p.text     { font-family:Arial,sans-serif; font-size:15px; color:#444; line-height:1.75; margin:0 0 20px; }
-    p.text strong { color:#1a3a8f; }
+    .email-body     { padding:40px; }
+    .greeting       { font-family:'Segoe UI',Arial,sans-serif; font-size:18px; color:#1a2940;
+                      margin:0 0 18px; font-weight:600; }
+    .intro-text     { font-family:Arial,sans-serif; font-size:15px; color:#444; line-height:1.8;
+                      margin:0 0 28px; }
+    .intro-text strong { color:#1a3a8f; }
 
-    /* Timeline / étapes */
-    .steps     { margin:8px 0 28px; }
-    .step-item { display:flex; align-items:flex-start; gap:14px; margin-bottom:16px; }
-    .step-num  { flex-shrink:0; width:28px; height:28px; border-radius:50%;
-                 background:#1a3a8f; color:#fff; font-family:'Segoe UI',Arial,sans-serif;
-                 font-size:13px; font-weight:700; display:flex; align-items:center;
-                 justify-content:center; margin-top:1px; }
-    .step-text { font-family:Arial,sans-serif; font-size:14px; color:#444; line-height:1.6; }
-    .step-text strong { color:#1a2940; }
+    /* Récapitulatif */
+    .recap-block    { background:#f8fafd; border-radius:8px; padding:24px; margin-bottom:28px;
+                      border:1px solid #e8eef8; }
+    .recap-title    { font-family:'Segoe UI',Arial,sans-serif; font-size:13px; font-weight:700;
+                      text-transform:uppercase; letter-spacing:1px; color:#1a3a8f;
+                      margin:0 0 16px; padding-bottom:10px; border-bottom:2px solid #e0e8f4; }
+    .recap-row      { display:flex; justify-content:space-between; padding:10px 0;
+                      border-bottom:1px solid #eef2f8; font-family:Arial,sans-serif; font-size:14px; }
+    .recap-row:last-child { border-bottom:none; }
+    .recap-label    { color:#6b7c93; font-weight:600; }
+    .recap-value    { color:#1a2940; text-align:right; max-width:60%; }
 
-    /* Highlight 48h */
-    .highlight-48 { background:linear-gradient(135deg,#e8f0ff,#d0e0ff);
-                    border-left:4px solid #1a3a8f; border-radius:0 7px 7px 0;
-                    padding:16px 20px; margin:0 0 28px; }
-    .highlight-48 p{ font-family:Arial,sans-serif; font-size:14px; color:#1a3560;
-                     margin:0; line-height:1.65; }
-    .highlight-48 strong { font-size:15px; color:#0d2560; }
+    /* Prochaines étapes */
+    .steps-block    { background:#fff8f0; border-left:4px solid #ff7f50;
+                      border-radius:0 8px 8px 0; padding:22px 24px; margin-bottom:28px; }
+    .steps-title    { font-family:'Segoe UI',Arial,sans-serif; font-size:14px; font-weight:700;
+                      color:#e65100; margin:0 0 16px; }
+    .step-item      { font-family:Arial,sans-serif; font-size:14px; color:#555;
+                      margin:0 0 12px; padding-left:28px; position:relative; line-height:1.6; }
+    .step-item:before { content:''; position:absolute; left:0; top:6px;
+                        width:18px; height:18px; border-radius:50%;
+                        background:#ff7f50; color:#fff; font-size:11px;
+                        display:flex; align-items:center; justify-content:center; }
+    .step-item:nth-child(2):before { content:'1'; }
+    .step-item:nth-child(3):before { content:'2'; }
+    .step-item:nth-child(4):before { content:'3'; }
 
-    /* Contact mini */
-    .contact   { background:#fafbfd; border:1px solid #e8eef8; border-radius:7px;
-                 padding:16px 20px; margin:0 0 28px; font-family:Arial,sans-serif; }
-    .contact p { font-size:13.5px; color:#555; margin:0 0 6px; line-height:1.6; }
-    .contact p:last-child { margin:0; }
-    .contact a { color:#1a3a8f; text-decoration:none; font-weight:600; }
+    /* Bloc délai */
+    .highlight-box  { background:linear-gradient(135deg,#e8f4ff,#d4e8ff); border-left:4px solid #1a3a8f;
+                      border-radius:0 8px 8px 0; padding:20px 24px; margin-bottom:28px; }
+    .highlight-box p { font-family:Arial,sans-serif; font-size:15px; color:#1a3560;
+                       margin:0; line-height:1.7; }
+    .highlight-box strong { color:#0d2560; font-size:16px; }
 
-    hr.div     { border:none; border-top:1px solid #eef1f6; margin:24px 0; }
+    /* Contact */
+    .contact-box    { background:#fafbfd; border:1px solid #e8eef8; border-radius:8px;
+                      padding:20px 24px; margin-bottom:28px; text-align:center; }
+    .contact-box p  { font-family:Arial,sans-serif; font-size:14px; color:#555;
+                      margin:0 0 10px; line-height:1.6; }
+    .contact-box a  { color:#1a3a8f; text-decoration:none; font-weight:600; }
+
+    /* CTA */
+    .cta-wrap       { text-align:center; margin:0 0 32px; }
+    .cta-btn        { display:inline-block; background:#1a3a8f; color:#ffffff !important;
+                      font-family:'Segoe UI',Arial,sans-serif; font-size:15px; font-weight:600;
+                      text-decoration:none; padding:14px 36px; border-radius:8px; }
+
+    /* Divider */
+    hr.divider      { border:none; border-top:1px solid #e8eef8; margin:28px 0; }
 
     /* Signature */
-    .sig       { font-family:Arial,sans-serif; font-size:14px; color:#555; line-height:1.8; }
-    .sig strong { color:#1a2940; }
-    .sig-brand { font-family:'Segoe UI',Arial,sans-serif; font-size:16px; font-weight:700;
-                 color:#1a3a8f; display:block; margin-top:10px; }
-    .sig-brand span { color:#ff7f50; }
-    .sig-sub   { font-size:12px; color:#9aabb8; display:block; margin-top:3px; }
+    .signature      { font-family:Arial,sans-serif; font-size:14px; color:#555; line-height:1.8; }
+    .signature strong{ color:#1a2940; }
+    .sig-logo       { font-family:'Segoe UI',Arial,sans-serif; font-size:17px; font-weight:700;
+                      color:#1a3a8f; margin-top:12px; display:block; }
+    .sig-logo span  { color:#ff7f50; }
 
     /* Footer */
-    .footer    { background:#f0f4f8; padding:18px 38px; text-align:center; }
-    .footer p  { font-family:Arial,sans-serif; font-size:11.5px; color:#a0aabb; margin:0; line-height:1.7; }
-    .footer a  { color:#6a80aa; text-decoration:none; }
+    .email-footer   { background:#f2f5f9; padding:22px 40px; text-align:center; }
+    .footer-text    { font-family:Arial,sans-serif; font-size:12px; color:#a0aabb; line-height:1.7; margin:0; }
+    .footer-text a  { color:#6a80aa; text-decoration:none; }
 
-    @media (max-width:600px) {
-      .body   { padding:22px 20px !important; }
-      .header { padding:26px 20px 22px !important; }
-      .footer { padding:14px 20px !important; }
+    /* Responsive */
+    @media screen and (max-width:620px) {
+      .email-body  { padding:24px 20px !important; }
+      .header      { padding:28px 20px !important; }
+      .header-title{ font-size:18px !important; }
+      .recap-block { padding:18px !important; }
+      .email-footer{ padding:18px 20px !important; }
     }
   </style>
 </head>
 <body>
-<div class="wrapper">
+<div class="email-wrapper">
+<div class="email-card">
 
   <!-- ══ EN-TÊTE ══ -->
   <div class="header">
-    <p class="brand">Morais <span>Cleaning</span></p>
-    <p class="tagline">Nettoyage professionnel — Bruxelles &amp; environs</p>
-    <span class="hdr-icon">👋</span>
-    <p class="hdr-title">Votre candidature a bien été reçue</p>
+    <p class="brand-name">Morais <span>Cleaning</span></p>
+    <p class="header-tagline">Rejoignez une équipe dynamique</p>
+    <span class="header-icon">📄</span>
+    <p class="header-title">Votre candidature a bien été reçue</p>
   </div>
 
   <!-- ══ CORPS ══ -->
-  <div class="body">
+  <div class="email-body">
 
     <p class="greeting">Bonjour {{ $json.nom }},</p>
 
-    <p class="text">
-      Nous vous remercions de l'intérêt que vous portez à Morais Cleaning et de nous avoir transmis
-      votre candidature pour le poste de <strong>{{ $json.poste }}</strong>.<br><br>
-      Nous avons bien reçu votre dossier, y compris votre CV.
+    <p class="intro-text">
+      Nous vous remercions pour l'intérêt que vous portez à <strong>Morais Cleaning</strong> et pour votre candidature au poste de <strong>{{ $json.poste }}</strong>.<br><br>
+      Votre dossier a bien été enregistré et sera examiné avec attention par notre équipe des Ressources Humaines.
     </p>
 
-    <!-- Bloc 48h -->
-    <div class="highlight-48">
-      <p>
-        <strong>⏱ Réponse garantie dans les 48 heures ouvrables.</strong><br>
-        Notre équipe RH examine votre profil avec attention. Vous recevrez une réponse personnalisée
-        à l'adresse <strong>{{ $json.email }}</strong>, qu'il s'agisse d'un entretien
-        ou d'un retour circonstancié.
-      </p>
+    <!-- Récapitulatif -->
+    <div class="recap-block">
+      <p class="recap-title">📋 Récapitulatif de votre candidature</p>
+      <div class="recap-row">
+        <span class="recap-label">Poste visé</span>
+        <span class="recap-value"><strong>{{ $json.poste }}</strong></span>
+      </div>
+      <div class="recap-row">
+        <span class="recap-label">Date de candidature</span>
+        <span class="recap-value">{{ new Date($json.timestamp).toLocaleDateString('fr-BE',{year:'numeric',month:'long',day:'numeric'}) }}</span>
+      </div>
     </div>
 
-    <!-- Processus de recrutement -->
-    <p class="text" style="margin-bottom:12px;font-weight:600;color:#1a2940;">
-      Comment se déroule notre processus de recrutement ?
-    </p>
+    <!-- Prochaines étapes -->
+    <div class="steps-block">
+      <p class="steps-title">🚀 Prochaines étapes</p>
+      <p class="step-item">Notre équipe RH examine votre profil et votre CV</p>
+      <p class="step-item">Si votre profil correspond, nous vous contacterons pour un premier échange téléphonique</p>
+      <p class="step-item">En cas de sélection, un entretien en personne sera organisé</p>
+    </div>
 
-    <div class="steps">
-      <div class="step-item">
-        <div class="step-num">1</div>
-        <div class="step-text">
-          <strong>Analyse de votre dossier</strong> — Votre candidature est étudiée par notre équipe RH
-          sous 48h ouvrables.
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">2</div>
-        <div class="step-text">
-          <strong>Entretien téléphonique</strong> — Si votre profil correspond, nous vous contactons
-          pour un premier échange de 15 à 20 minutes.
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">3</div>
-        <div class="step-text">
-          <strong>Rencontre en personne</strong> — Un entretien avec notre responsable vous permettra
-          de découvrir l'équipe et votre futur environnement de travail.
-        </div>
-      </div>
-      <div class="step-item">
-        <div class="step-num">4</div>
-        <div class="step-text">
-          <strong>Intégration &amp; formation</strong> — En cas de suite positive, vous bénéficiez
-          d'un accompagnement complet dès votre premier jour.
-        </div>
-      </div>
+    <!-- Bloc délai -->
+    <div class="highlight-box">
+      <p>
+        <strong>⏱ Délai de réponse : 48 heures ouvrables maximum.</strong><br>
+        Que votre candidature soit retenue ou non, nous nous engageons à vous donner une réponse dans ce délai.
+      </p>
     </div>
 
     <!-- Contact -->
-    <div class="contact">
-      <p>Une question sur votre candidature ?</p>
+    <div class="contact-box">
+      <p><strong>Une question sur votre candidature ?</strong></p>
       <p>
-        📞 <a href="tel:+32478951269">0478 95 12 69</a>
-        &nbsp;|&nbsp;
-        ✉️ <a href="mailto:rh@morais-cleaning.com">rh@morais-cleaning.com</a>
+        <a href="mailto:rh@morais-cleaning.com">✉️ rh@morais-cleaning.com</a>
       </p>
-      <p style="font-size:12.5px;color:#888;margin-top:4px !important;">
-        Lundi au vendredi · 9h – 17h
+      <p style="font-size:12px;color:#888;margin-top:8px !important;">
+        Notre équipe RH est disponible du lundi au vendredi, 9h – 17h
       </p>
     </div>
 
-    <hr class="div">
+    <!-- CTA -->
+    <div class="cta-wrap">
+      <a class="cta-btn" href="https://moraiscleaning.be/pages/recrutement.html">
+        Découvrir nos autres offres
+      </a>
+    </div>
 
-    <p class="sig">
-      En vous remerciant à nouveau pour votre confiance,<br><br>
-      <strong>Le département Ressources Humaines</strong><br>
-      <span class="sig-brand">Morais <span>Cleaning</span></span>
-      <span class="sig-sub">Leader du nettoyage professionnel — Bruxelles, Belgique</span>
+    <hr class="divider">
+
+    <!-- Signature -->
+    <p class="signature">
+      Cordialement,<br><br>
+      <strong>L'équipe des Ressources Humaines</strong><br>
+      <span class="sig-logo">Morais <span>Cleaning</span></span>
+      <span style="display:block;font-size:13px;color:#8a9ab0;margin-top:4px;">
+        Nettoyage professionnel — Bruxelles, Belgique
+      </span>
     </p>
 
-  </div><!-- /.body -->
+  </div><!-- /.email-body -->
 
   <!-- ══ PIED DE PAGE ══ -->
-  <div class="footer">
-    <p>
+  <div class="email-footer">
+    <p class="footer-text">
       Morais Cleaning ·
-      <a href="https://moraiscleaning.be">moraiscleaning.be</a> ·
-      <a href="tel:+32478951269">0478 95 12 69</a><br>
-      Cet email confirme la réception de votre candidature envoyée sur notre site.<br>
-      Merci de ne pas répondre directement à cet email automatique.
+      <a href="https://moraiscleaning.be">moraiscleaning.be</a><br>
+      <a href="mailto:rh@morais-cleaning.com">rh@morais-cleaning.com</a> ·
+      Bruxelles, Belgique<br><br>
+      Cet email a été généré automatiquement suite à votre candidature sur notre site.<br>
+      Si vous pensez l'avoir reçu par erreur, veuillez ignorer ce message.
     </p>
   </div>
 
-</div><!-- /.wrapper -->
+</div><!-- /.email-card -->
+</div><!-- /.email-wrapper -->
 </body>
 </html>
